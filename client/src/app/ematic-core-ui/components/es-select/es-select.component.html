@@ -1,0 +1,51 @@
+<es-dropdown-field #container
+                   [displayText]="displayText"
+                   [showErrorMessage]="showErrorMessage"
+                   [errorMessage]="errorMessage"
+                   [showDropdownIcon]="showDropdownIcon"
+                   [showClearIcon]="showClearIcon"
+                   [compact]="compact"
+                   [hasTransparentColors]="hasTransparentColors"
+                   [isRounded]="isRounded"
+                   (clicked)="onDropdownSelect()"
+                   (cleared)="onClear()">
+</es-dropdown-field>
+<es-dropdown-container
+  [arrowPosition]="dropdownAlignment"
+  [pointerBottom]="pointerBottom"
+  (cancelClick)="onDropdownClose()"
+  esDropdown
+  [dropdownAlignment]="dropdownAlignment"
+  [disableTopDropdownAlignment]="disableTopDropdownAlignment"
+  [containerElement]="container.element"
+  [isRounded]="isRounded"
+  (hide)="onItemsHidden()"
+  (pointerBottom)="onPointerBottom($event)"
+  *ngIf="_itemsVisible">
+  <input *ngIf="searchable" #searchField
+         type="text"
+         class="es-dropdown-select-search"
+         [ngModel]="latestQueryString"
+         [class.disabled]="isLoading"
+         [placeholder]="searchPlaceholder"
+         (input)="onQueryChange($event)"/>
+  <ul class="es-dropdown-select-list" #itemsList>
+    <li *ngFor="let item of items; let i = index, trackBy:itemsTrackBy"
+        class="item styled"
+        [class.hovered]="item.hovered"
+        [class.selected]="item.selected"
+        (click)="onItemSelect(item, i)"
+        (mouseenter)="onItemMouseEnter($event, i)">
+      <span>{{ item.text }}</span>
+    </li>
+    <li class="item" *ngIf="isLoading">
+      <es-loader [small]="true"></es-loader>
+    </li>
+    <li class="item" *ngIf="shouldDisplayTypeToSearchMessage()">
+      Type to search.
+    </li>
+    <li class="item" *ngIf="shouldDisplayNoResultsFoundMessage()">
+      No results found.
+    </li>
+  </ul>
+</es-dropdown-container>

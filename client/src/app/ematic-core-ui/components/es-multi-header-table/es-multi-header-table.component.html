@@ -1,0 +1,52 @@
+<div class="table-container" [style.width]="getScrollerWidth">
+  <div class="table-wrapper">
+    <div class="multi-header-table">
+      <div class="table-left" [class.shadow]="isShadowBox" #tableLeftElement>
+        <table class="table">
+          <thead>
+          <tr>
+            <th [style.height]="tableRowHeight">{{tableName}}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let column of verticalColumns; trackBy: trackByIndex">
+            <th [style.height]="tableRowHeight" [class]="column['class']">{{column.headerText}}</th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-right" (scroll)="onScroll($event)" #tableRightElement [style.margin-left]="tableMargin">
+        <table class="table">
+          <thead>
+          <tr>
+            <th *ngFor="let column of horizontalColumns; trackBy: trackByIndex"
+                [style.height]="tableRowHeight"
+                [style.width]="tableColumnWidth">
+              {{column.headerText}}
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let column of verticalColumns, let i = index; trackBy: trackByIndex">
+            <td *ngFor="let record of records, let j = index; trackBy: trackByIndex"
+                [style.width]="tableColumnWidth"
+                [style.height]="tableRowHeight">
+                <span *ngIf="!column['dataTooltip']">
+                  {{ formatColumn(record, column, i, j) }}
+                </span>
+                <span class="tooltip"
+                      *ngIf="column['dataTooltip']"
+                      [esTooltip]="getTooltipContent(record, column)"
+                      tooltipPosition="top"
+                      tooltipTextAlignment="left">
+                  {{ formatColumn(record, column, i, j) }}
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

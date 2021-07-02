@@ -1,0 +1,30 @@
+<label class="es-checkbox"
+       [class.left]="labelPosition === 'left'"
+       [class.right]="labelPosition === 'right'"
+       [class.disabled]="isEsDisabled">
+  <div *ngIf="showLeftLabel"
+       class="es-label label"
+       [innerHtml]="labelText">
+  </div>
+  <input *ngIf="!htmlMode"
+         type="checkbox"
+         [name]="name"
+         [disabled]="isEsDisabled"
+         [(ngModel)]="innerValue"/>
+  <input *ngIf="htmlMode"
+         type="checkbox"
+         [name]="name"
+         [disabled]="isEsDisabled"
+         [checked]="isChecked"
+         (change)="onChange($event)"/>
+  <div class="checkbox"
+       [class.checked]="showCheck">
+    <div *ngIf="showCheck"
+         class="check">
+    </div>
+  </div>
+  <div *ngIf="showRightLabel"
+       class="es-label label"
+       [innerHtml]="labelText">
+  </div>
+</label>

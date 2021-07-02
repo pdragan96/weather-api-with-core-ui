@@ -1,0 +1,51 @@
+@import "../../scss/helpers/helpers_all";
+
+:host ::ng-deep es-dropdown-container {
+  position: absolute !important;
+  top: 40px !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  margin-top: 0 !important;
+}
+
+:host ::ng-deep .es-dropdown-container {
+  padding: 0 !important;
+}
+
+:host ::ng-deep .pointer {
+  display: none !important;
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-list {
+  height: auto !important;
+  max-height: 200px;
+  overflow-y: auto;
+
+  & > .list-item {
+    background-color: $text-white;
+    padding: 12px;
+    border: 1px solid $item-border-color;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+
+    &:not(:first-of-type) {
+      border-top: none;
+    }
+
+    &.hovered {
+      background-color: $hover-color;
+    }
+  }
+}
+
+.dropdown-empty {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid $item-border-color;
+}

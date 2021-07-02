@@ -1,0 +1,78 @@
+@import "../scss/helpers/helpers_all";
+
+/* Table
+ * -------------------------- */
+.table {
+  display: table;
+  max-width: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 1.4rem;
+  font-weight: 400;
+
+  td,
+  th {
+    vertical-align: middle;
+    line-height: 2.4;
+    padding: 7px 10px;
+    border: none;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th, > td {
+        border-top: 1px solid $light-gray;
+        color: $dark-gray;
+      }
+    }
+  }
+
+  > thead > tr {
+    > th,
+    > td {
+      border-top: none;
+      border-bottom: 2px solid $light-gray;
+      font-weight: bold;
+    }
+  }
+}
+
+.table-responsive {
+  table {
+    min-width: 800px;
+  }
+
+  @include bp($point_2) {
+    // border: 1px solid blue;
+    overflow-x: scroll;
+    width: 100%;
+    max-width: 840px;
+    height: 384px;
+    margin: 0 auto;
+  }
+  @include bp($point_2b) {
+    max-width: 620px;
+    display: flex;
+    // border: 1px solid orange;
+  }
+  @include bp($point_2c) {
+    max-width: 620px;
+  }
+  @include bp($point_3) {
+    width: 100%;
+    max-width: 440px;
+    // border: 1px solid red;
+  }
+
+  @include bp($point_4) {
+    // border: 1px solid yellow;
+    max-width: 340px;
+  }
+}

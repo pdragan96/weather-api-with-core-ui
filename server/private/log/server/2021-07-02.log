@@ -1,0 +1,38 @@
+2021-07-02T07:15:06.414Z - info: APPLICATION: Environment: local!
+2021-07-02T07:15:06.419Z - info: MONGO: Connection attempted with local:local
+2021-07-02T07:15:06.521Z - info: MONGO: Mongoose connected!
+2021-07-02T07:15:06.776Z - info: NODE: HTTPS listening on port 8043.
+2021-07-02T07:16:20.683Z - error: Route not found!
+2021-07-02T07:16:22.463Z - error: Route not found!
+2021-07-02T07:18:35.119Z - info: MONGO: Mongoose disconnected!
+2021-07-02T07:18:38.943Z - info: APPLICATION: Environment: local!
+2021-07-02T07:18:38.946Z - info: MONGO: Connection attempted with local:local
+2021-07-02T07:18:39.000Z - info: MONGO: Mongoose connected!
+2021-07-02T07:18:39.205Z - info: NODE: HTTPS listening on port 8043.
+2021-07-02T07:20:03.110Z - error: Route not found!
+2021-07-02T07:36:03.853Z - error: Route not found!
+2021-07-02T07:36:04.838Z - error: Route not found!
+2021-07-02T07:36:06.632Z - error: Route not found!
+2021-07-02T07:59:44.836Z - error: Route not found!
+2021-07-02T07:59:45.078Z - error: Route not found!
+2021-07-02T07:59:46.733Z - error: Route not found!
+2021-07-02T07:59:50.766Z - error: Route not found!
+2021-07-02T07:59:51.710Z - error: Route not found!
+2021-07-02T07:59:58.419Z - error: Route not found!
+2021-07-02T08:03:00.545Z - info: MONGO: Mongoose disconnected!
+2021-07-02T08:03:03.558Z - info: APPLICATION: Environment: local!
+2021-07-02T08:03:03.562Z - info: MONGO: Connection attempted with local:local
+2021-07-02T08:03:03.610Z - info: MONGO: Mongoose connected!
+2021-07-02T08:03:03.824Z - info: NODE: HTTPS listening on port 8043.
+2021-07-02T08:53:14.245Z - info: MONGO: Mongoose disconnected!
+2021-07-02T08:53:18.687Z - info: APPLICATION: Environment: local!
+2021-07-02T08:53:18.690Z - info: MONGO: Connection attempted with local:local
+2021-07-02T08:53:18.743Z - info: MONGO: Mongoose connected!
+2021-07-02T08:53:18.952Z - info: NODE: HTTPS listening on port 8043.
+2021-07-02T09:18:59.658Z - info: APPLICATION: Environment: local!
+2021-07-02T09:18:59.662Z - info: MONGO: Connection attempted with local:local
+2021-07-02T09:18:59.700Z - info: MONGO: Mongoose connected!
+2021-07-02T09:18:59.895Z - info: NODE: HTTPS listening on port 8043.
+2021-07-02T09:38:35.641Z - error: 
+  Url: /api/weather
+  Internal Server Error: Cannot read property 'coord' of undefined.

@@ -1,0 +1,25 @@
+.es-input-field {
+  width: 100% !important;
+  height: 100% !important;
+  line-height: 1.2 !important;
+  padding: 0 14px 0 0 !important;
+  border: none !important;
+  background-color: transparent;
+
+  &:disabled {
+    background-color: transparent !important;
+    opacity: 1 !important;
+  }
+}
+
+.es-align-center {
+  input {
+    text-align: center;
+  }
+}
+
+.es-align-right {
+  input {
+    text-align: right;
+  }
+}

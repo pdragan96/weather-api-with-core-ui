@@ -1,0 +1,16 @@
+<div class="es-tooltip" #tooltipEl [class.hidden]="isTooltipHidden"
+     [@tooltip]="tooltipState"
+     (@tooltip.start)="onAnimationStart($event)"
+     (@tooltip.done)="onAnimationEnd($event)">
+  <div class="content"
+       [ngClass]="position"
+       [style.text-align]="textAlignment">
+    <div *ngIf="title" class="title">{{ title }}</div>
+    {{ text }}
+  </div>
+  <div class="pointer"
+       [ngClass]="position"
+       [style.top]="pointerTop"
+       [style.left]="pointerLeft">
+  </div>
+</div>

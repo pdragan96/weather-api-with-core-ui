@@ -1,0 +1,33 @@
+<div class="chart-wrapper" *ngIf="!hasNoData" [@fadeIn]="true">
+  <div class="chart-base" *ngIf="type !== 'pie'; else isPieChart" [style.height]="height + 'px'">
+    <canvas baseChart
+            id="chart"
+            [datasets]="datasets"
+            [colors]="colors"
+            [labels]="labels"
+            [options]="options"
+            [legend]="legend"
+            [chartType]="type"
+            [plugins]="chartPlugins"
+            [ngClass]="getCanvasClass()">
+    </canvas>
+  </div>
+  <ng-template #isPieChart>
+    <div [style.height]="height + 'px'">
+      <canvas baseChart
+              [data]="data"
+              [colors]="colors"
+              [labels]="labels"
+              [options]="options"
+              [legend]="legend"
+              [chartType]="type"
+              [ngClass]="getCanvasClass()">
+      </canvas>
+    </div>
+  </ng-template>
+</div>
+
+<div class="no-data-content" *ngIf="hasNoData" [@fadeIn]="true" [style.margin-top]="noDataPosition + 'px'">
+  <i class="icon-no-data"></i>
+  <p class="no-data-message">{{noDataMessageTitle}}</p>
+</div>

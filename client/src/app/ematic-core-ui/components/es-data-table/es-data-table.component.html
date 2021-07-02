@@ -1,0 +1,133 @@
+<div class="table-scroller" [class.table-fixed]="isFixedTable" [style.width]="tableParentEleWidth">
+  <table class="table" [class.fixed-columns]="isFixedColumn" #tableElement>
+    <span *ngIf="isFixedTableHeader && stickyHeader">
+      <a class="btn-scroll btn-scroll-left" (click)="horizontalScroll(false)" *ngIf="leftScrollBtn">
+        <i class="icon-left"></i>
+      </a>
+      <a class="btn-scroll btn-scroll-right" (click)="horizontalScroll(true)" *ngIf="rightScrollBtn">
+        <i class="icon-right"></i>
+      </a>
+    </span>
+    <thead class="table-head"
+           [style.width]="tableHeaderWidth"
+           #headerScroll
+           [class.fixed-table-header]="isFixedTableHeader && stickyHeader">
+      <tr>
+        <th *ngFor="let column of columns, let i = index; trackBy: trackByIndex"
+            [hidden]="column['hidden']"
+            [class]="column['class']"
+            [class.fixed-column]="column['fixedColumn'] && isFixedColumn"
+            [class.selected]="column['sortable'] && clickedHeaderIndex === i"
+            [class.sortable]="column['sortable']"
+            (click)="onColumnHeaderSelect(i)">
+          <div [style.width]="cellWidth[i]" class="text">
+            <span>{{column.headerText}}</span>
+            <span class="tooltip" *ngIf="column['headerTooltip']">
+            <i class="icon-info" [esTooltip]="column['headerTooltip']" tooltipPosition="top"
+               tooltipTextAlignment="left"></i>
+          </span>
+          </div>
+          <span class="sort"
+                [class.arrow-down]="column['sortable'] && clickedHeaderIndex === i && column['sortDirection'] === 'DESC'"
+                [class.arrow-up]="column['sortable'] && clickedHeaderIndex === i && column['sortDirection'] === 'ASC'">
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody (mouseover)="onMouseOver($event)"
+           class="table-body"
+           [style.height]="tableHeight"
+           [style.width]="tableBodyWidth"
+           (scroll)="updateScroll()"
+           #bodyScroll>
+      <tr class="info"
+          *ngIf="isLoading"
+          [style.height]="tableHeight">
+        <td [attr.colspan]="columns.length">
+          <es-loader></es-loader>
+        </td>
+      </tr>
+      <tr class="info"
+          *ngIf="!isLoading && records.length === 0"
+          [style.height]="tableHeight">
+        <td [attr.colspan]="columns.length">
+          <span>No records available</span>
+        </td>
+      </tr>
+      <tr *ngFor="let record of records, let i = index; trackBy: trackByIndex"
+          [class.compare]="compareMode"
+          [ngClass]="doGetRowClass(i, record)"
+          [style.height]="rowHeight+'px'">
+        <td *ngFor="let column of columns, let j = index; trackBy: trackByIndex"
+            [style.height]="rowHeight+'px'"
+            [hidden]="column['hidden']"
+            [class.fixed-column]="column['fixedColumn'] && isFixedColumn"
+            [class]="column['class']">
+          <div [style.width]="cellWidth[j]" *ngIf="isClickable(column.clickable, record)">
+            <span [class.clickable]="column.clickable || column.recordClickable"
+                  (click)="handleOnClick($event, record, column)">
+              <span *ngIf="!column['dataTooltip']">
+                {{ formatColumn(record, column) }}
+              </span>
+              <span class="tooltip"
+                    [isTooltipHidden]="shouldHideTooltip"
+                    *ngIf="column['dataTooltip']"
+                    [esTooltip]="column['dataTooltip']"
+                    tooltipPosition="top"
+                    tooltipTextAlignment="left">
+                {{ formatColumn(record, column) }}
+              </span>
+              <span class="tooltip"
+                    *ngIf="hasTooltipContent(record, column)"
+                    [esTooltip]="getDateTooltipContent(record, column)"
+                    tooltipPosition="top"
+                    tooltipTextAlignment="left">
+                <i class="icon-info"></i>
+              </span>
+            </span>
+            <span *ngIf="shouldDisplayStatusLabel(j)" class="status-label" [ngClass]="getStatusLabel(record.active)">
+              {{ getStatusLabel(record.active) }}
+            </span>
+          </div>
+          <div [style.width]="cellWidth[j]"
+               *ngIf="!isClickable(column.clickable, record)"
+               (mouseenter)="onMouseEvent('enter', i, j)"
+               (mouseleave)="onMouseEvent('leave', i, j)">
+            <div>{{ formatColumn(record, column, i, j) }}
+              <span class="tooltip"
+                    *ngIf="hasTooltipContent(record, column)"
+                    [esTooltip]="getDateTooltipContent(record, column)"
+                    tooltipPosition="top"
+                    tooltipTextAlignment="left">
+                <i class="icon-info"></i>
+              </span>
+              <span *ngIf="shouldDisplayStatusLabel(j)" class="status-label" [ngClass]="getStatusLabel(record.active)">
+                {{ getStatusLabel(record.active) }}
+              </span>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="data-table-footer">
+  <es-pager *ngIf="paging"
+            [position]="pagerPosition"
+            [pageSize]="pageSize"
+            [totalRecords]="pagerOptions.totalRecords"
+            [isRounded]="true"
+            (pageEvent)="onSelectPage($event)">
+  </es-pager>
+  <div class="page-size-select" *ngIf="showPageSizeSelect">
+    <label class="page-size-label">Show rows:</label>
+    <select class="page-size-selector"
+            #pageSizeSelector
+            [disabled]="isLoading"
+            (change)="onPageSizeSelect(pageSizeSelector.value)">
+      <option *ngFor="let pagesSizeOption of pageSizes; trackBy: trackByIndex" [value]="pagesSizeOption">
+        {{pagesSizeOption}}
+      </option>
+    </select>
+  </div>
+</div>

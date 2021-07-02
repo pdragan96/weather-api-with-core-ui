@@ -1,0 +1,81 @@
+@import "../../scss/helpers/helpers_all";
+
+.es-dropdown-container {
+  background-color: $text-white;
+  padding: 5px;
+  border: 1px solid $pointer;
+  border-radius: 4px;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.09);
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  .content {
+    height: 100%;
+    overflow-y: auto;
+    text-align: center;
+
+    &.shrunk {
+      width: 220px;
+    }
+  }
+
+  .mobile {
+    height: calc(100% - 40px);
+    width: 100%;
+  }
+
+  .close-button {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    padding: 0 5px 0 5px;
+    text-align: center;
+
+    es-button {
+      width: 100%;
+    }
+  }
+
+  .options {
+    display: table;
+    width: 100%;
+    padding: 0;
+
+    es-button {
+      display: table-cell;
+      width: auto;
+      padding: 0 5px;
+    }
+  }
+
+  .pointer {
+    display: block;
+    position: absolute;
+    background-color: #FFF;
+    @include size(9px, 9px);
+    top: -5px;
+    transform: rotate(45deg);
+    border-top: 1px solid $pointer;
+    border-left: 1px solid $pointer;
+    z-index: 10;
+  }
+
+  .left {
+    left: 8px;
+  }
+
+  .right {
+    right: 8px;
+  }
+
+  .bottom {
+    border-top: none;
+    border-left: none;
+    border-bottom: 1px solid $pointer;
+    border-right: 1px solid $pointer;
+    top: calc(100% - 3.5px);
+  }
+}

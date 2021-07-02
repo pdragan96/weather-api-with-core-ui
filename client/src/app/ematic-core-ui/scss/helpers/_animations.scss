@@ -1,0 +1,131 @@
+@import "variables";
+
+// Keyframes
+@mixin dash($from, $to, $name) {
+  fill: none;
+  stroke: $title-color;
+  stroke-width: 2;
+  stroke-dasharray: 14;
+  stroke-dashoffset: 2000;
+  animation: $name 9s linear infinite;
+
+  @keyframes #{$name} {
+    #{$from} {
+      stroke-dashoffset: 100%;
+    }
+
+    #{$to} {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+@mixin arrow-animation($slideName, $xValue, $yValue, $rValue) {
+  fill: $title-color;
+  animation: $slideName 2.5s ease-in-out infinite;
+
+  @keyframes #{$slideName} {
+    0% {
+    }
+
+    100% {
+      transform: translate(0, 0);
+    }
+
+    50% {
+      transform: translate($xValue, $yValue) rotate($rValue);
+    }
+  }
+}
+
+@-webkit-keyframes animate-lock-status {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+    transform: translateZ(-1400px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+@keyframes animate-lock-status {
+  0% {
+    -webkit-transform: translateZ(-1400px);
+    transform: translateZ(-1400px);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes animated-circle {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba($brand-primary3, 0.4);
+  }
+
+  70% {
+    -webkit-box-shadow: 0 0 0 10px rgba($brand-primary3, 0);
+  }
+
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba($brand-primary3, 0);
+  }
+}
+
+@keyframes animated-circle {
+  0% {
+    box-shadow: 0 0 0 0 rgba($brand-primary3, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba($brand-primary3, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba($brand-primary3, 0);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes hover {
+  0% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: 10px;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 260.22 173.48;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 1 431.7;
+  }
+  100% {
+    stroke-dasharray: 260.22 173.48;
+    stroke-dashoffset: -867.4;
+  }
+}

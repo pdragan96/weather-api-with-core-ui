@@ -1,0 +1,58 @@
+<div class="date-picker-container">
+  <i *ngIf="hasNextAndPreviousButtons"
+     class="icon-left"
+     [ngClass]="{ disabled: shouldDisableIcon('previous') }"
+     (click)="onPreviousDateClick()">
+  </i>
+  <div [ngStyle]="{ flex: hasNextAndPreviousButtons ? 10 : 12 }">
+    <es-dropdown-field
+      #container
+      [displayText]="displayText"
+      [showErrorMessage]="showErrorMessage"
+      [errorMessage]="errorMessage"
+      [showDropdownIcon]="showDropdownIcon"
+      [showClearIcon]="showClearIcon"
+      [compact]="compact"
+      [hasTransparentColors]="hasTransparentColors"
+      [isRounded]="isRounded"
+      (clicked)="onDropdownSelect()"
+      (cleared)="onClear()">
+    </es-dropdown-field>
+    <es-dropdown-container
+      [arrowPosition]="dropdownAlignment"
+      [pointerBottom]="pointerBottom"
+      [hasOkButton]="todayButton"
+      [okButtonText]="today"
+      (okClick)="onToday()"
+      (cancelClick)="onDropdownClose()"
+      esDropdown
+      [dropdownAlignment]="dropdownAlignment"
+      [disableTopDropdownAlignment]="disableTopDropdownAlignment"
+      [containerElement]="container.element"
+      [isRounded]="isRounded"
+      (hide)="onItemsHidden()"
+      (pointerBottom)="onPointerBottom($event)"
+      *ngIf="_itemsVisible">
+      <es-date-selector
+        [date]="innerValue"
+        [displayFormat]="displayFormat"
+        [minDate]="minDate"
+        [maxDate]="maxDate"
+        [isMonthViewSelected]="isMonthViewSelected"
+        (closeDropdown)="hideItems()"
+        (selected)="onDateSelect($event)">
+      </es-date-selector>
+      <es-button
+        [text]="today"
+        *ngIf="todayButton && !_isMobile"
+        [isRounded]="isRounded"
+        (clicked)="onToday()">
+      </es-button>
+    </es-dropdown-container>
+  </div>
+  <i *ngIf="hasNextAndPreviousButtons"
+     class="icon-right"
+     [ngClass]="{ disabled: shouldDisableIcon('next') }"
+     (click)="onNextDateClick()">
+  </i>
+</div>

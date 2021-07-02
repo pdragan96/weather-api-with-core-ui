@@ -1,0 +1,84 @@
+@import "../../scss/helpers/variables";
+
+.es-switch {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  height: 34px;
+
+  input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  .label,
+  .slider {
+    margin: auto 0;
+  }
+
+  .slider {
+    position: relative;
+    width: 38px;
+    height: 20px;
+    background-color: $light-gray2;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      background-color: $text-white;
+      left: 2px;
+      top: 2px;
+      bottom: 2px;
+      -webkit-transition: .25s;
+      transition: .25s;
+    }
+
+    &.round {
+      border-radius: 16px;
+
+      &:before {
+        border-radius: 50%;
+      }
+    }
+
+    &.checked {
+      background-color: $color-success;
+
+      &:before {
+        -webkit-transform: translateX(18px);
+        -ms-transform: translateX(18px);
+        transform: translateX(18px);
+      }
+    }
+
+    &.unchecked {
+      background-color: $color-error;
+    }
+  }
+
+  &.left,
+  &.right {
+    flex: 1;
+  }
+
+  &.left {
+    .label {
+      padding-right: 12px;
+    }
+  }
+
+  &.right {
+    .label {
+      padding-left: 12px;
+    }
+  }
+
+  &.disabled {
+    .slider {
+      background: $disabled-color;
+    }
+  }
+}

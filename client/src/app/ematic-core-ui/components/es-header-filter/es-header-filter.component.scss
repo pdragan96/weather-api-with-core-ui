@@ -1,0 +1,95 @@
+.es-header-filter {
+  display: flex;
+  height: 44px;
+  min-width: 200px;
+  font-weight: normal;
+
+  .sorter {
+    display: block;
+    padding-top: 10px;
+    cursor: pointer;
+  }
+
+  .container {
+    display: flex;
+    flex: 1;
+    position: relative;
+
+    .header-text, .filter-text, .filter {
+      position: absolute;
+      top: 10px;
+      bottom: 0;
+      right: 0;
+    }
+
+    .header-text, .filter-text {
+      left: 0;
+      transition: all 0.25s ease-in-out;
+    }
+
+    .header-text {
+      font-weight: 600;
+    }
+
+    .filter-text {
+      right: 22px;
+      opacity: 0;
+
+      input {
+        border: none;
+        padding: 0.8rem 0;
+        margin: 0;
+        background-color: transparent;
+      }
+
+      span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 100%;
+        display: block;
+      }
+    }
+
+    .filter {
+      bottom: 0;
+
+      .icon-search {
+        padding-top: 2px;
+      }
+
+      .pseudo-icon-clear {
+        right: 5px;
+      }
+
+      .pseudo-icon-clear:hover, .icon-search:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.active {
+    .container {
+      border-bottom: 1px solid #2C99ED;
+
+      .header-text {
+        top: 0;
+        height: 10px;
+        line-height: 10px;
+        font-size: 10px;
+      }
+
+      .filter-text {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.dropdown-filter {
+    .container {
+      .filter {
+        left: 0;
+      }
+    }
+  }
+}

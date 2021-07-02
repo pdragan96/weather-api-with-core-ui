@@ -1,0 +1,156 @@
+@import "../../scss/helpers/helpers_all";
+
+.es-date-selector {
+  display: flex;
+  flex-direction: column;
+
+  .months {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 50px 40px;
+    padding: 30px 0;
+
+    .month {
+      cursor: pointer;
+    }
+  }
+
+  .month-selector {
+    display: flex;
+    flex-direction: row;
+    min-height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #4A4A4A;
+    font-weight: 600;
+
+    .icon-left,
+    .icon-double-left,
+    .icon-right,
+    .icon-right-2 {
+      flex: 0.1428;
+      font-size: 12px;
+      cursor: pointer;
+      color: $title-color;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    .month-name {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.6;
+      }
+
+      span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  .day-selector {
+    flex: 1;
+    overflow: hidden;
+
+    table {
+      display: table;
+      width: 100%;
+      height: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+
+      thead {
+        tr {
+          border-top: 1px solid #EFEFEF;
+        }
+
+        .week-day {
+          color: $color-warning;
+        }
+      }
+
+      td,
+      th {
+        vertical-align: middle;
+        max-width: 40px;
+        min-width: 40px;
+        max-height: 40px;
+        min-height: 40px;
+        line-height: 40px;
+        padding: 0;
+        border: none;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      th {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      td.day {
+        cursor: pointer;
+        font-size: 1.4rem;
+        color: $form-label;
+
+        &:hover {
+          opacity: 0.9;
+        }
+      }
+
+      td.today {
+        position: relative;
+
+        &:after {
+          content: '';
+          background-color: $primary-color;
+          width: 6px;
+          height: 6px;
+          border-radius: 6px;
+          bottom: 5px;
+          left: calc(50% - 3px);
+          position: absolute;
+        }
+      }
+
+      td.selected {
+        background-color: $primary-color;
+        color: $text-white;
+        border-radius: 20px;
+
+        &:after {
+          content: '';
+          background-color: $black;
+          opacity: .3;
+        }
+      }
+
+      td.in-range {
+        background-color: rgba($primary-color, .1);
+        border-radius: 0;
+      }
+
+      td.min-in-range {
+        border-radius: 20px 0 0 20px;
+      }
+
+      td.max-in-range {
+        border-radius: 0 20px 20px 0;
+      }
+
+      td.disabled {
+        opacity: 0.4;
+      }
+    }
+  }
+}

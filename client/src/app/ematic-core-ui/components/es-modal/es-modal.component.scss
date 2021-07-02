@@ -1,0 +1,83 @@
+@import "../../scss/helpers/helpers_all";
+
+.es-modal-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $black;
+  opacity: 0.4;
+  z-index: 3000;
+}
+
+.es-modal {
+  position: fixed;
+  right: auto;
+  bottom: auto;
+  min-width: 300px;
+  min-height: 200px;
+  z-index: 3000;
+}
+
+.header,
+.content,
+.footer {
+  padding: 10px 15px;
+  box-sizing: border-box;
+  background-color: #F7F7F7;
+  min-width: 100%;
+}
+
+.header {
+  line-height: 30px;
+  color: #4D5059;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+
+  .title,
+  .close {
+    display: inline;
+    line-height: 30px;
+  }
+
+  .title {
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    font-weight: 600;
+  }
+
+  .close {
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      opacity: .4;
+    }
+  }
+}
+
+.content {
+  height: calc(100% - 120px);
+  background-color: $text-white;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.footer {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-top: 1px solid $light-gray;
+  line-height: 40px;
+  text-align: right;
+  background-color: $text-white;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+
+  ::ng-deep .btn-cancel:not(.btn-rounded) {
+    border: none;
+    text-decoration: underline;
+    padding: 0;
+  }
+}

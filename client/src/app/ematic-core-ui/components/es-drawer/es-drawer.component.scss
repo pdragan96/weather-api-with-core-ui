@@ -1,0 +1,56 @@
+@import "../../scss/helpers/helpers_all";
+
+.es-drawer {
+  position: fixed;
+  min-height: 200px;
+  z-index: 1000;
+  box-shadow: 10px 0 19px 5px grey;
+  background-color: $text-white;
+}
+
+.header,
+.content {
+  padding: 10px 15px;
+  box-sizing: border-box;
+  background-color: #F7F7F7;
+  // min-width: 300px;
+  background-clip: padding-box;
+}
+
+.header {
+  line-height: 40px;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  height: 40px;
+  background-color: $text-white;
+
+  .title,
+  .close {
+    display: inline-block;
+    line-height: 40px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    color: $title-color;
+    font-weight: 300;
+  }
+
+  .close {
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+
+    &:hover {
+      opacity: .4;
+    }
+  }
+}
+
+.content {
+  height: 100%;
+  background-color: $text-white;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+}

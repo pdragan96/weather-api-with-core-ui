@@ -1,0 +1,172 @@
+@import "../../scss/helpers/helpers_all";
+
+:host {
+  display: block;
+}
+
+.es-navigation-menu-container {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  color: $text-white;
+  background-color: $brand-primary3;
+
+  .main-menu {
+    height: calc(100vh - 120px);
+    position: relative;
+    width: 60px;
+    overflow: hidden;
+    overflow-y: auto;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+    .navigation,
+    .options {
+      position: absolute;
+      left: 0;
+      right: 0;
+
+      .item {
+        height: 60px;
+        width: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 2rem;
+        position: relative;
+        display: block;
+        color: $text-white;
+
+        @include bp($wxga_display) {
+          height: 40px;
+          line-height: 40px;
+          font-size: 1.5rem;
+        }
+
+        @media only screen and (min-device-width: $point_2b) and (max-device-width: $sxga_display) {
+          height: 30px;
+          line-height: 30px;
+          font-size: 1.5rem;
+        }
+
+        // Fix for Full HD Laptop screens with 150% zoom
+        @media (resolution: 144dpi) {
+          height: 30px;
+          line-height: 30px;
+
+          & > i {
+            font-size: 1.5rem;
+          }
+        }
+
+        span {
+          background-color: $nav-active;
+          width: 2px;
+          display: block;
+          position: absolute;
+          left: -4px;
+          top: 0;
+          bottom: 0;
+          transition: all 0.24s ease;
+        }
+
+        &:hover,
+        &.selected {
+          color: $nav-active;
+          cursor: pointer;
+        }
+
+        &.selected span {
+          left: 0;
+        }
+      }
+    }
+
+    .navigation {
+      top: 10px;
+
+      .item {
+        margin-bottom: 10px;
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+
+    .options {
+      bottom: 0;
+
+      .item {
+        margin-top: 10px;
+
+        &:first-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .main-menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sub-menu {
+    position: relative;
+    width: 210px;
+    background-color: $brand-primary4;
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .bread-crumb,
+    .item {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      height: 40px; // Used in code for calculatong offset
+      line-height: 40px;
+      padding: 0 10px;
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: .06rem;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .item {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: $text-white;
+
+      span {
+        display: inline-block;
+        min-width: 160px;
+      }
+
+      &:hover,
+      &.selected {
+        color: $nav-active;
+        background-color: rgba(255, 255, 255, 0.14);
+        border-radius: 2px;
+      }
+
+      .icon-right {
+        float: right;
+      }
+    }
+
+    .bread-crumb {
+      height: 26px; // Used in code for calculating offset
+      padding: 3px 0;
+      line-height: 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #1373BC;
+
+      &:hover {
+        color: #0D67AB;
+      }
+    }
+  }
+}

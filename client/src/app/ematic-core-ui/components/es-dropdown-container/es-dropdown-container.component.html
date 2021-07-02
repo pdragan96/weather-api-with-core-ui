@@ -1,0 +1,30 @@
+<div class="es-dropdown-container">
+  <div class="content"
+    [class.mobile]="_isMobile"
+    [class.shrunk]="!_isMobile && shrinkDropdown">
+    <ng-content></ng-content>
+  </div>
+  <div class="close-button"
+    [class.options]="hasOkButton"
+    *ngIf="_isMobile">
+    <es-button
+      *ngIf="hasOkButton"
+      [text]="okButtonText"
+      [isRounded]="isRounded"
+      (clicked)="onOk()">
+    </es-button>
+    <es-button
+      type="danger"
+      [text]="cancelButtonText"
+      [isRounded]="isRounded"
+      (clicked)="onCancel()">
+    </es-button>
+  </div>
+  <span
+    class="pointer"
+    [class.bottom]="pointerBottom"
+    [class.left]="isLeft"
+    [class.right]="isRight"
+    *ngIf="!_isMobile">
+  </span>
+</div>

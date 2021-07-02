@@ -1,0 +1,32 @@
+<div class="es-modal-mask"
+     *ngIf="isOpened"
+     (click)="onModalMaskClick()"
+     [@mask]>
+</div>
+<div #modal
+     class="es-modal"
+     (@modal.start)="onModalAnimationStart()"
+     [style.top]="top"
+     [style.left]="left"
+     [style.right]="right"
+     [style.bottom]="bottom"
+     *ngIf="isOpened"
+     [@modal]>
+  <div class="header">
+    <span class="title" [innerHtml]="titleText"></span>
+    <span class="close"
+          (click)="onClose()"
+          *ngIf="closable">
+      <i class="icon-x"></i>
+    </span>
+  </div>
+  <div #content
+       class="content"
+       [style.max-height]="maxHeight"
+       [style.max-width]="maxWidth">
+    <ng-content select="[content]"></ng-content>
+  </div>
+  <div class="footer">
+    <ng-content select="[footer]"></ng-content>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+@import "../../scss/helpers/helpers_all";
+
+$point_1b: 1100px;
+
+.es-range-picker-container {
+  min-width: 774px;
+  min-height: 477px;
+  max-height: calc(100% - 100px);
+}
+
+.es-range-picker-item {
+  box-sizing: border-box;
+  display: inline-table;
+  padding: 4px;
+
+  @include bp($point_1b) {
+    width: 50%;
+    margin: .8rem 0 1.2rem;
+  }
+
+  @include bp($point_3) {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.es-range-picker-options {
+  vertical-align: top;
+  text-align: left;
+  padding-top: 10px;
+
+  @include bp($point_1b) {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  ul {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include bp($point_1b) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include bp($point_2) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include bp($point_3) {
+      grid-gap: 5px;
+      margin-bottom: 16px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    li {
+      padding: 0 5px;
+      border-radius: 4px;
+      font-size: 1.4rem;
+      line-height: 2;
+      font-weight: 400;
+
+      @include bp($point_1b) {
+        padding: 0;
+        text-align: center;
+        border: 1px solid $light-border;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: rgba($primary-color, .1);
+      }
+
+      button {
+        background-color: transparent;
+        color: lighten($input-color, 13%);
+        padding: 0;
+      }
+    }
+  }
+
+  .buttons {
+    width: 100%;
+    margin-top: 16px;
+    text-align: center;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include bp($point_3) {
+      grid-gap: 5px;
+    }
+
+    &:hover {
+      cursor: inherit;
+      background-color: transparent;
+    }
+  }
+}
+
+.es-range-picker-selected-date {
+  text-align: center;
+  font-size: 13px;
+  line-height: 2;
+  font-weight: 600;
+  padding-top: 8px;
+  color: $title-color;
+}

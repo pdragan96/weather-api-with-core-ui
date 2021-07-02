@@ -1,0 +1,198 @@
+@import "../../scss/helpers/helpers_all";
+
+.es-field-base {
+  position: relative;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $item-border-color;
+  border-radius: 2px;
+  padding: 4px 10px;
+  height: 34px;
+  transition: all 0.3s ease;
+
+  &.rounded {
+    border-radius: 40px;
+    background: $text-white;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+
+    .es-display-text {
+      padding: 0 1.6rem;
+      font-size: 1.4rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &.field-trans {
+    background-color: rgba($text-white, .1);
+    border-color: rgba($text-white, .2);
+    transition: background-color .3s;
+    color: $text-white;
+
+    @include bp($point_1) {
+      border-color: $item-border-color;
+      background: $text-white;
+      color: $form-label;
+    }
+
+    &:hover, &:focus {
+      background-color: rgba($text-white, .2);
+    }
+  }
+
+  .icon-right-wide,
+  .icon-x {
+    position: absolute;
+    top: 45%;
+    right: 3px;
+    font-size: 8px;
+    transform: translate(-50%, -50%);
+
+    &:before {
+      margin: 0;
+    }
+  }
+
+  .icon-right-wide {
+    transform-origin: left;
+    color: $primary-color;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .icon-x {
+    font-size: 1rem;
+    top: 50%;
+    right: 10px;
+
+    &:hover {
+      cursor: pointer;
+      color: $text-dark;
+    }
+  }
+
+  .icon-clipboard {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    right: -20px;
+    left: auto;
+
+    &:before {
+      margin: 0;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+  }
+}
+
+.es-cursor-pointer {
+
+  .es-field-base,
+  .es-checkbox,
+  .es-radiobutton,
+  .es-switch,
+  .es-menu {
+    cursor: pointer;
+  }
+}
+
+.es-cursor-text {
+  .es-field-base {
+    cursor: text;
+  }
+}
+
+.es-compact {
+  .es-field-base {
+    min-width: 34px;
+    border: none;
+    border-radius: 0;
+  }
+
+  .es-checkbox,
+  .es-switch,
+  .es-radiobutton {
+    display: inline-flex;
+  }
+}
+
+.es-disabled {
+  cursor: not-allowed;
+
+  .es-field-base,
+  .es-input-field,
+  .es-checkbox,
+  .es-radiobutton,
+  .es-switch,
+  .es-label {
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .es-field-base,
+  .es-checkbox,
+  .es-radiobutton,
+  .es-switch,
+  .es-label {
+    opacity: 0.4;
+  }
+}
+
+.es-readonly {
+  cursor: not-allowed;
+
+  .es-field-base,
+  .es-checkbox,
+  .es-radiobutton,
+  .es-switch {
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+.es-focus {
+  .es-field-base {
+    border-color: $primary-color;
+  }
+}
+
+.es-focusable {
+  &:focus {
+    .es-field-base {
+      border-color: $primary-color;
+    }
+  }
+}
+
+.es-invalid {
+  .es-field-base {
+    border-color: $color-error !important;
+
+    &.compact {
+      border: none;
+    }
+  }
+}
+
+.es-label {
+  text-transform: none;
+  color: $dark-gray;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+// .ng-invalid.ng-touched,
+// .ng-invalid.ng-dirty {
+//   .es-field-base {
+//     border-color: red;
+
+//     &.compact {
+//       border: none;
+//     }
+//   }
+// }

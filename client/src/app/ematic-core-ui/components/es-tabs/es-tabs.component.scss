@@ -1,0 +1,71 @@
+@import "../../scss/helpers/helpers_all";
+
+.tab-nav {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  flex-direction: column;
+
+  .tab-nav-link {
+    display: block;
+    text-align: left;
+    word-wrap: normal;
+    padding: .6rem 3rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    position: relative;
+    color: lighten($disabled-color, 10%);
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $primary-color;
+
+      &:before {
+        content: '';
+        border-left: 6px solid $secondary-color;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        height: 100%;
+        top: 0;
+        border-radius: 3px;
+      }
+    }
+
+    &.active {
+      color: $primary-color;
+      background-color: rgba($secondary-color, .1);
+
+      &:before {
+        content: '';
+        border-left: 6px solid $secondary-color;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        height: 100%;
+        top: 0;
+        border-radius: 3px;
+      }
+    }
+
+    span {
+      font-weight: 600;
+    }
+
+    i {
+      display: inline;
+      text-align: left;
+      margin-right: 1rem;
+      font-size: 2rem;
+      line-height: 4rem;
+    }
+  }
+}
+
+.tab-content {
+  &.active {
+    display: block;
+  }
+}

@@ -1,0 +1,5 @@
+export enum UIProject {
+  ADMIN_TOOL,
+  PLATFORM_DASHBOARD
+  // EMATIC_STYLEGUIDE
+}

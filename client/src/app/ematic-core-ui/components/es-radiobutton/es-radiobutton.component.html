@@ -1,0 +1,29 @@
+<label class="es-radiobutton"
+  [class.left]="labelPosition === 'left'"
+  [class.right]="labelPosition === 'right'"
+  [class.disabled]="isEsDisabled">
+  <div *ngIf="showLeftLabel"
+    class="es-label label"
+    [innerHtml]="labelText">
+  </div>
+  <input *ngIf="!htmlMode"
+    type="radio"
+    [name]="name"
+    [disabled]="isEsDisabled"
+    [(ngModel)]="innerValue"
+    [value]="value" />
+  <input *ngIf="htmlMode"
+    type="radio"
+    [name]="name"
+    [disabled]="isEsDisabled"
+    [value]="value"
+    [checked]="isChecked"
+    (change)="onChange($event)" />
+  <div class="radiobutton"
+    [class.checked]="showCheck">
+  </div>
+  <div *ngIf="showRightLabel"
+    class="es-label label"
+    [innerHtml]="labelText">
+  </div>
+</label>

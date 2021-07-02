@@ -1,0 +1,95 @@
+<div class="es-date-selector" [ngSwitch]="view">
+
+  <div *ngSwitchCase="'date'">
+    <div class="month-selector">
+      <div class="icon-double-left"
+           (click)="onPrevious(null, true)"></div>
+      <div class="icon-left"
+           (click)="onPrevious()"></div>
+      <div class="month-name">
+        <span [@slide]="animationTrigger" (click)="setView('month')"
+              (@slide.done)="resetAnimation()">{{ getDateFormat('date') }}</span>
+      </div>
+      <div class="icon-right"
+           (click)="onNext()"></div>
+      <div class="icon-right-2"
+           (click)="onNext(null, true)"></div>
+    </div>
+    <div class="day-selector">
+      <table [@slide]="animationTrigger">
+        <thead>
+        <tr>
+          <th class="week-day"
+              *ngFor="let day of weekDays">
+            {{ day }}
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let a of weeks; let i = index">
+          <td *ngFor="let b of weekDays; let j = index"
+              class="day"
+              [class.today]="dates[(i * weekDays.length) + j]['today']"
+              [class.selected]="dates[(i * weekDays.length) + j]['selected']"
+              [class.min-in-range]="dates[(i * weekDays.length) + j]['selected'] && maxDate && isRange"
+              [class.max-in-range]="dates[(i * weekDays.length) + j]['selected'] && minDate && isRange"
+              [class.in-range]="dates[(i * weekDays.length) + j]['inRange']"
+              [class.disabled]="dates[(i * weekDays.length) + j]['disabled'] || !dates[(i * weekDays.length) + j]['selectedMonth']"
+              (click)="onSelectedDate(dates[(i * weekDays.length) + j])">
+            {{dates[(i * weekDays.length) + j]['day']}}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'month'">
+    <div class="month-selector">
+      <div class="icon-double-left"
+           (click)="onPrevious()"></div>
+      <div class="month-name">
+        <span [@slide]="animationTrigger" (click)="setView('year')"
+              (@slide.done)="resetAnimation()">{{ getDateFormat('month') }}</span>
+      </div>
+      <div class="icon-right-2"
+           (click)="onNext()"></div>
+    </div>
+    <div class="day-selector">
+      <table [@slide]="animationTrigger">
+        <tbody class="months">
+        <tr *ngFor="let m of months; let j = index">
+          <td class="month" (click)="onSelectedDate(j)" [class.selected]="m.selected">
+            {{ m.month }}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'year'">
+    <div class="month-selector">
+      <div class="icon-double-left"
+           (click)="onPrevious(10)"></div>
+      <div class="month-name">
+        <span [@slide]="animationTrigger"
+              (@slide.done)="resetAnimation()">{{ getDateFormat('year') }}</span>
+      </div>
+      <div class="icon-right-2"
+           (click)="onNext(10)"></div>
+    </div>
+    <div class="day-selector">
+      <table [@slide]="animationTrigger">
+        <tbody class="months">
+        <tr *ngFor="let year of years; let j = index">
+          <td class="month" (click)="onSelectedDate(year)">
+            {{ year }}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

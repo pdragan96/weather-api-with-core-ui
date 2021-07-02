@@ -1,0 +1,23 @@
+<label class="es-range-slider"
+  [class.left]="labelPosition === 'left'"
+  [class.right]="labelPosition === 'right'">
+  <div *ngIf="showLeftLabel"
+    class="es-label label"
+    [innerHtml]="labelText">
+  </div>
+  <input
+    class="range-slider"
+    type="range"
+    [name]="name"
+    [step]="step"
+    [min]="min"
+    [max]="max"
+    [style.background-size]="backgroundSize"
+    [(ngModel)]="innerValue"
+    (input)="updateSliderBackground()"
+    [disabled]="isEsDisabled">
+  <div *ngIf="showRightLabel"
+    class="es-label label"
+    [innerHtml]="labelText">
+  </div>
+</label>

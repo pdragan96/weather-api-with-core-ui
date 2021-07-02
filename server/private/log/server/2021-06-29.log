@@ -1,0 +1,184 @@
+2021-06-29T07:16:23.311Z - info: APPLICATION: Environment: local!
+2021-06-29T07:16:23.315Z - info: MONGO: Connection attempted with local:local
+2021-06-29T07:16:23.371Z - info: MONGO: Mongoose connected!
+2021-06-29T07:16:23.598Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T07:19:03.468Z - error: Route not found!
+2021-06-29T07:42:29.837Z - info: MONGO: Mongoose disconnected!
+2021-06-29T07:43:05.304Z - info: APPLICATION: Environment: local!
+2021-06-29T07:43:05.307Z - info: MONGO: Connection attempted with local:local
+2021-06-29T07:43:05.359Z - info: MONGO: Mongoose connected!
+2021-06-29T07:43:05.567Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T07:44:12.340Z - info: MONGO: Mongoose disconnected!
+2021-06-29T07:44:17.232Z - info: APPLICATION: Environment: local!
+2021-06-29T07:44:17.236Z - info: MONGO: Connection attempted with local:local
+2021-06-29T07:44:17.279Z - info: MONGO: Mongoose connected!
+2021-06-29T07:44:17.485Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T07:46:58.503Z - info: MONGO: Mongoose disconnected!
+2021-06-29T07:49:09.357Z - info: APPLICATION: Environment: local!
+2021-06-29T07:49:09.361Z - info: MONGO: Connection attempted with local:local
+2021-06-29T07:49:09.412Z - info: MONGO: Mongoose connected!
+2021-06-29T07:49:09.628Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T07:50:14.837Z - info: MONGO: Mongoose disconnected!
+2021-06-29T07:52:49.049Z - info: APPLICATION: Environment: local!
+2021-06-29T07:52:49.053Z - info: MONGO: Connection attempted with local:local
+2021-06-29T07:52:49.099Z - info: MONGO: Mongoose connected!
+2021-06-29T07:52:49.306Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T07:55:16.936Z - info: MONGO: Mongoose disconnected!
+2021-06-29T07:55:20.593Z - info: APPLICATION: Environment: local!
+2021-06-29T07:55:20.597Z - info: MONGO: Connection attempted with local:local
+2021-06-29T07:55:20.646Z - info: MONGO: Mongoose connected!
+2021-06-29T07:55:20.867Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T07:57:08.662Z - info: MONGO: Mongoose disconnected!
+2021-06-29T07:57:12.933Z - info: APPLICATION: Environment: local!
+2021-06-29T07:57:12.937Z - info: MONGO: Connection attempted with local:local
+2021-06-29T07:57:12.984Z - info: MONGO: Mongoose connected!
+2021-06-29T07:57:13.192Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T07:58:06.997Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:00:43.818Z - info: APPLICATION: Environment: local!
+2021-06-29T08:00:43.821Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:00:43.869Z - info: MONGO: Mongoose connected!
+2021-06-29T08:00:44.079Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:02:14.566Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:02:17.897Z - info: APPLICATION: Environment: local!
+2021-06-29T08:02:17.902Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:02:17.948Z - info: MONGO: Mongoose connected!
+2021-06-29T08:02:18.154Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:03:15.478Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:08:17.321Z - info: APPLICATION: Environment: local!
+2021-06-29T08:08:17.325Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:08:17.376Z - info: MONGO: Mongoose connected!
+2021-06-29T08:08:17.582Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:09:04.622Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:10:54.707Z - info: APPLICATION: Environment: local!
+2021-06-29T08:10:54.710Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:10:54.758Z - info: MONGO: Mongoose connected!
+2021-06-29T08:10:54.953Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:11:04.337Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:12:47.572Z - info: APPLICATION: Environment: local!
+2021-06-29T08:12:47.576Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:12:47.629Z - info: MONGO: Mongoose connected!
+2021-06-29T08:12:47.822Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:13:00.944Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:13:57.377Z - info: APPLICATION: Environment: local!
+2021-06-29T08:13:57.381Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:13:57.434Z - info: MONGO: Mongoose connected!
+2021-06-29T08:13:57.626Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:14:06.337Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:15:02.102Z - info: APPLICATION: Environment: local!
+2021-06-29T08:15:02.106Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:15:02.156Z - info: MONGO: Mongoose connected!
+2021-06-29T08:15:02.359Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:15:13.230Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:16:13.097Z - info: APPLICATION: Environment: local!
+2021-06-29T08:16:13.101Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:16:13.153Z - info: MONGO: Mongoose connected!
+2021-06-29T08:16:13.347Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:17:03.400Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:18:05.897Z - info: APPLICATION: Environment: local!
+2021-06-29T08:18:05.900Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:18:05.950Z - info: MONGO: Mongoose connected!
+2021-06-29T08:18:06.156Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:19:06.051Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:19:41.957Z - info: APPLICATION: Environment: local!
+2021-06-29T08:19:41.960Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:19:42.010Z - info: MONGO: Mongoose connected!
+2021-06-29T08:19:42.207Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:20:03.157Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:20:51.297Z - info: APPLICATION: Environment: local!
+2021-06-29T08:20:51.301Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:20:51.350Z - info: MONGO: Mongoose connected!
+2021-06-29T08:20:51.546Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:21:05.216Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:21:48.022Z - info: APPLICATION: Environment: local!
+2021-06-29T08:21:48.025Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:21:48.076Z - info: MONGO: Mongoose connected!
+2021-06-29T08:21:48.269Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:22:05.010Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:22:38.455Z - info: APPLICATION: Environment: local!
+2021-06-29T08:22:38.459Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:22:38.505Z - info: MONGO: Mongoose connected!
+2021-06-29T08:22:38.702Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:23:06.702Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:23:34.147Z - info: APPLICATION: Environment: local!
+2021-06-29T08:23:34.150Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:23:34.200Z - info: MONGO: Mongoose connected!
+2021-06-29T08:23:34.395Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:24:07.876Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:25:27.846Z - info: APPLICATION: Environment: local!
+2021-06-29T08:25:27.850Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:25:27.910Z - info: MONGO: Mongoose connected!
+2021-06-29T08:25:28.143Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:28:39.044Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:28:42.530Z - info: APPLICATION: Environment: local!
+2021-06-29T08:28:42.534Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:28:42.579Z - info: MONGO: Mongoose connected!
+2021-06-29T08:28:42.803Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:29:09.132Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:34:13.520Z - info: APPLICATION: Environment: local!
+2021-06-29T08:34:13.524Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:34:13.576Z - info: MONGO: Mongoose connected!
+2021-06-29T08:34:13.772Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:35:52.648Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:36:52.585Z - info: APPLICATION: Environment: local!
+2021-06-29T08:36:52.589Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:36:52.636Z - info: MONGO: Mongoose connected!
+2021-06-29T08:36:52.840Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:38:23.325Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:39:55.483Z - info: APPLICATION: Environment: local!
+2021-06-29T08:39:55.487Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:39:55.537Z - info: MONGO: Mongoose connected!
+2021-06-29T08:39:55.735Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:40:36.970Z - info: MONGO: Mongoose disconnected!
+2021-06-29T08:40:40.188Z - info: APPLICATION: Environment: local!
+2021-06-29T08:40:40.191Z - info: MONGO: Connection attempted with local:local
+2021-06-29T08:40:40.241Z - info: MONGO: Mongoose connected!
+2021-06-29T08:40:40.438Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T08:41:53.979Z - info: MONGO: Mongoose disconnected!
+2021-06-29T09:08:40.176Z - info: APPLICATION: Environment: local!
+2021-06-29T09:08:40.179Z - info: MONGO: Connection attempted with local:local
+2021-06-29T09:08:40.234Z - info: MONGO: Mongoose connected!
+2021-06-29T09:08:40.452Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T09:09:06.722Z - info: MONGO: Mongoose disconnected!
+2021-06-29T09:09:09.969Z - info: APPLICATION: Environment: local!
+2021-06-29T09:09:09.973Z - info: MONGO: Connection attempted with local:local
+2021-06-29T09:09:10.026Z - info: MONGO: Mongoose connected!
+2021-06-29T09:09:10.218Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T09:10:47.941Z - info: MONGO: Mongoose disconnected!
+2021-06-29T09:12:11.927Z - info: APPLICATION: Environment: local!
+2021-06-29T09:12:11.930Z - info: MONGO: Connection attempted with local:local
+2021-06-29T09:12:11.972Z - info: MONGO: Mongoose connected!
+2021-06-29T09:12:12.172Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T09:23:32.469Z - info: MONGO: Mongoose disconnected!
+2021-06-29T09:36:24.827Z - info: APPLICATION: Environment: local!
+2021-06-29T09:36:24.831Z - info: MONGO: Connection attempted with local:local
+2021-06-29T09:36:24.927Z - info: MONGO: Mongoose connected!
+2021-06-29T09:36:25.134Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T09:40:16.141Z - info: MONGO: Mongoose disconnected!
+2021-06-29T09:41:50.348Z - info: APPLICATION: Environment: local!
+2021-06-29T09:41:50.351Z - info: MONGO: Connection attempted with local:local
+2021-06-29T09:41:50.401Z - info: MONGO: Mongoose connected!
+2021-06-29T09:41:50.592Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T09:42:27.958Z - info: MONGO: Mongoose disconnected!
+2021-06-29T09:42:43.403Z - info: APPLICATION: Environment: local!
+2021-06-29T09:42:43.407Z - info: MONGO: Connection attempted with local:local
+2021-06-29T09:42:43.451Z - info: MONGO: Mongoose connected!
+2021-06-29T09:42:43.660Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T09:43:37.206Z - info: MONGO: Mongoose disconnected!
+2021-06-29T09:43:47.959Z - info: APPLICATION: Environment: local!
+2021-06-29T09:43:47.963Z - info: MONGO: Connection attempted with local:local
+2021-06-29T09:43:48.008Z - info: MONGO: Mongoose connected!
+2021-06-29T09:43:48.226Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T11:29:17.462Z - info: MONGO: Mongoose disconnected!
+2021-06-29T11:29:21.447Z - info: APPLICATION: Environment: local!
+2021-06-29T11:29:21.451Z - info: MONGO: Connection attempted with local:local
+2021-06-29T11:29:21.572Z - info: MONGO: Mongoose connected!
+2021-06-29T11:29:21.786Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T11:34:08.893Z - info: MONGO: Mongoose disconnected!
+2021-06-29T11:34:12.054Z - info: APPLICATION: Environment: local!
+2021-06-29T11:34:12.058Z - info: MONGO: Connection attempted with local:local
+2021-06-29T11:34:12.107Z - info: MONGO: Mongoose connected!
+2021-06-29T11:34:12.302Z - info: NODE: HTTPS listening on port 8043.
+2021-06-29T13:43:12.173Z - info: APPLICATION: Environment: local!
+2021-06-29T13:43:12.176Z - info: MONGO: Connection attempted with local:local
+2021-06-29T13:43:12.220Z - info: MONGO: Mongoose connected!
+2021-06-29T13:43:12.433Z - info: NODE: HTTPS listening on port 8043.

@@ -1,0 +1,125 @@
+@import "../scss/helpers/variables";
+
+%btn-holder {
+  min-width: 80px;
+  padding: .82rem 2.4rem;
+}
+
+button,
+.btn {
+  cursor: pointer;
+  border-radius: 2px;
+  margin-left: 0;
+  font-size: 1.4rem;
+  font-family: $font-primary;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 200ms ease-in-out;
+
+  &.btn-rounded {
+    border-radius: 100px;
+
+    &.btn-border-primary {
+      background: transparent;
+      color: $primary-color !important;
+      border: 1px solid $primary-color !important;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.btn {
+  @extend %btn-holder;
+  border: 1px solid #333;
+  color: #333;
+  background-color: $text-white;
+}
+
+.btn-primary {
+  @extend %btn-holder;
+  color: $text-white;
+  border: 1px solid $primary-color;
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: darken($primary-color, 5%);
+    border: 1px solid darken($primary-color, 5%);
+  }
+}
+
+.btn-success {
+  @extend %btn-holder;
+  color: $text-white;
+  border: 1px solid $color-success;
+  background-color: $color-success;
+
+  &:hover {
+    background-color: darken($color-success, 5%);
+    border: 1px solid darken($color-success, 5%);
+  }
+}
+
+.btn-cancel {
+  @extend %btn-holder;
+  background-color: transparent;
+  color: $color-error;
+  border: 1px solid $color-error;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.btn-circle {
+  padding: 0;
+  display: block;
+  border-radius: 50% !important;
+  height: 40px !important;
+  min-height: 40px !important;
+  min-width: auto !important;
+  text-align: center;
+  border: 1px solid;
+  width: 41px !important;
+}
+
+.btn-block {
+  width: 100%;
+
+  button {
+    width: 100%;
+  }
+}
+
+.btn-secondary {
+  @extend %btn-holder;
+  background-color: $text-white;
+  border: 1px solid $primary-color;
+  color: $primary-color;
+}
+
+.btn-info {
+  @extend %btn-holder;
+  background-color: $text-white;
+  border: 1px solid #46B8DA;
+  color: #46B8DA;
+}
+
+.btn-warning {
+  @extend %btn-holder;
+  background-color: $text-white;
+  border: 1px solid $color-warning;
+  color: $color-warning;
+}
+
+.btn-danger {
+  @extend %btn-holder;
+  background-color: $color-error;
+  border: 1px solid $color-error;
+  color: $text-white;
+}

@@ -1,0 +1,34 @@
+.field {
+  border: 1px solid $item-border-color;
+  border-radius: 2px;
+  height: 34px;
+  position: relative;
+}
+
+.field.compact {
+  border: none;
+  border-radius: 0;
+}
+
+:host.ng-invalid.ng-touched,
+:host.ng-invalid.ng-dirty {
+  div.field {
+    border: 1px solid red;
+  }
+
+  div.field.compact {
+    border: none;
+  }
+}
+
+.field.disabled {
+  opacity: 0.4;
+  user-select: none;
+  cursor: not-allowed;
+
+  .pseudo-icon-clear {
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

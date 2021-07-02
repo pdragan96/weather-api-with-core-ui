@@ -1,0 +1,49 @@
+<div class="es-navigation-menu-container">
+  <div class="main-menu">
+    <div class="navigation"
+         *ngIf="mainItems.length > 0">
+      <a class="item"
+         *ngFor="let node of mainItems"
+         [class.selected]="node.id === mainItem?.id"
+         [esTooltip]="node.item.tooltip"
+         tooltipPosition="right"
+         [tooltipDisabled]="!node.item.tooltip"
+         [routerLink]="['/', node.item.route]"
+         (click)="onItemSelect(node)">
+        <span></span>
+        <i [ngClass]="node.item.iconCls"></i>
+      </a>
+    </div>
+    <div class="options"
+         *ngIf="options.length > 0">
+      <div class="item"
+           *ngFor="let option of options"
+           [esTooltip]="option.tooltip"
+           tooltipPosition="right"
+           [tooltipDisabled]="!option.tooltip"
+           (click)="onOptionSelect(option)">
+        <span></span>
+        <i [ngClass]="option.iconCls"></i>
+      </div>
+    </div>
+  </div>
+  <div class="sub-menu" [@subMenu]
+       *ngIf="showSubMenu">
+    <div class="bread-crumb" [@subMenuItem]
+         *ngFor="let node of breadCrumbs; let i = index"
+         [style.top]="breadCrumbOffset(i)"
+         [routerLink]="getBreadCrumbsLink(node.parent)">
+      <i class="icon-left"></i>
+      <span>{{node.item.text || node.item.tooltip}}</span>
+    </div>
+    <a class="item" [@subMenuItem]
+       *ngFor="let node of subItems; let i = index"
+       [style.top]="itemOffset(i)"
+       [class.selected]="node.id === selectedItem?.id"
+       [routerLink]="getBreadCrumbsLink(node)"
+       (click)="onItemSelect(node)">
+      <span>{{node.item.text}}</span>
+      <i class="icon-right" *ngIf="node.hasChildren"></i>
+    </a>
+  </div>
+</div>

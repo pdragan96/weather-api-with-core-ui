@@ -1,0 +1,27 @@
+<div #drawer
+     [@drawer]
+     (@drawer.start)="onModalAnimationStart()"
+     class="es-drawer"
+     [style.top]="top"
+     [style.left]="left"
+     [style.right]="right"
+     [style.bottom]="bottom"
+     [style.width]="maxWidth"
+     *ngIf="isOpened">
+
+  <div class="header">
+    <div class="title">
+      {{ titleText }}
+    </div>
+    <span class="close"
+          (click)="onClose()"
+          *ngIf="closable">
+      <i class="icon-x"></i>
+    </span>
+  </div>
+
+  <div class="content" #content [style.max-height]="contentDivMaxHeight">
+    <ng-content select=[content]></ng-content>
+  </div>
+
+</div>

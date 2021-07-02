@@ -1,0 +1,19 @@
+<es-field
+  [showErrorMessage]="showErrorMessage"
+  [errorMessage]="errorMessage"
+  [showClearIcon]="showClearIcon"
+  [isRounded]="isRounded"
+  (clear)="onClear()">
+  <input #inputField
+         class="es-input-field"
+         tabindex="-1"
+         type="text"
+         autocomplete="off"
+         [name]="name"
+         [disabled]="isEsDisabled"
+         [placeholder]="placeholder"
+         (focus)="onInnerInputFocus()"
+         (blur)="onInnerInputBlur()"
+         (input)="onInnerInputChange()"
+         (keypress)="onInnerInputKeyPress($event)"/>
+</es-field>

@@ -1,0 +1,12 @@
+<div [class.col-3]="isHorizontalTab">
+  <ul class="tab-nav">
+    <li *ngFor="let tab of tabs" (click)="selectTab(tab)" class="tab-nav-link" [class.active]="tab.active">
+      <i *ngIf="tab.icon" [ngClass]="tab.icon"></i> <span>{{ tab.title }}</span>
+    </li>
+  </ul>
+</div>
+<div [class.col-9]="isHorizontalTab">
+  <div class="tab-content active">
+    <ng-content></ng-content>
+  </div>
+</div>

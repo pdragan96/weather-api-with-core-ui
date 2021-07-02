@@ -1,0 +1,22 @@
+<div #container
+     class="es-field-base"
+     [class.rounded]="isRounded">
+  <div class="es-display-text">
+    <ng-content></ng-content>
+  </div>
+  <div class="icon-x"
+       *ngIf="showClearIcon"
+       (click)="onClearClicked()">
+  </div>
+  <div class="icon-clipboard"
+       *ngIf="showCopyIcon"
+       esTooltip="Copy to clipboard"
+       (click)="onCopyValueClicked()">
+  </div>
+</div>
+<es-validation-message
+  [message]="errorMessage"
+  esValidationMessage
+  [containerElement]="validationContainer"
+  *ngIf="showErrorMessage">
+</es-validation-message>

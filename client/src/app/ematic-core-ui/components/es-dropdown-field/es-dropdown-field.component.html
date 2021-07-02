@@ -1,0 +1,23 @@
+<div #container
+     class="es-field-base es-dropdown"
+     [class.rounded]="isRounded"
+     [class.field-trans]="hasTransparentColors"
+     (click)="onDropdownClicked()">
+  <div class="es-display-text"
+       *ngIf="!compact"
+       [innerText]="displayText">
+  </div>
+  <div class="icon-right-wide"
+       *ngIf="showDropdownIcon">
+  </div>
+  <div class="icon-x"
+       *ngIf="showClearIcon"
+       (click)="onClearClicked()">
+  </div>
+</div>
+<es-validation-message
+  [message]="errorMessage"
+  esValidationMessage
+  [containerElement]="validationContainer"
+  *ngIf="showErrorMessage">
+</es-validation-message>

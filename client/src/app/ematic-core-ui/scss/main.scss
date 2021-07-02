@@ -1,0 +1,84 @@
+@import "helpers/helpers_all";
+@import "reset";
+@import "base";
+@import "typography";
+@import "grid";
+@import "table";
+@import "form";
+@import "button";
+@import "toolbar";
+@import "tooltip";
+@import "info-box";
+@import "pseudo-icons";
+@import "toster";
+@import "auto-fill";
+/* 'es' prefixed components */
+@import "../components/base/es-field.scss";
+@import "../components/base/es-input-field.scss";
+@import "../components/base/es-checkbox.scss";
+@import "../components/base/es-switch.scss";
+@import "../components/base/es-dropdown-select.scss";
+
+/* You can add global styles to this file, and also import other style files */
+.text-right {
+  text-align: right;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.overflow-auto {
+  overflow: auto;
+  height: 100%;
+}
+
+.user-select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.table {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.table-cell {
+  display: table-cell;
+  height: 100%;
+  vertical-align: top;
+}
+
+.h-reset {
+  margin: 0;
+  padding: 10px 0;
+}
+
+.padding-l {
+  padding-left: 10px;
+}
+
+/* App globals */
+.created {
+  position: absolute;
+  display: block;
+  bottom: 10px;
+  right: 10px;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 40px;
+}
+
+.modal-scroll-disabled {
+  div.content {
+    overflow-y: initial;
+    overflow-x: initial;
+  }
+}

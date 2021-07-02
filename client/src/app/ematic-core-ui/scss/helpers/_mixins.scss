@@ -1,0 +1,100 @@
+@mixin scrollbar(
+  $selector,
+  $invertColors: false,
+  $scrollbarWidth: 4px,
+  $scrollbarBorderRadius: 10px,
+  $scrollbarTrackBackgroundColor: rgba(0, 0, 0, 0.08),
+  $scrollbarTrackBorderRadius: 10px,
+  $scrollbarThumbBackgroundColor: #FFF,
+  $scrollbarThumbBorderRadius: 10px
+) {
+  #{$selector}::-webkit-scrollbar {
+    width: $scrollbarWidth;
+    border-radius: $scrollbarBorderRadius;
+  }
+
+  #{$selector}::-webkit-scrollbar-track {
+    border-radius: $scrollbarTrackBorderRadius;
+    @if $invertColors == true {
+      border-radius: $scrollbarThumbBorderRadius;
+    } @else {
+      background-color: $scrollbarTrackBackgroundColor;
+    }
+  }
+
+  #{$selector}::-webkit-scrollbar-thumb {
+    background-color: $scrollbarThumbBackgroundColor;
+    @if $invertColors == true {
+      background-color: $scrollbarTrackBackgroundColor;
+    } @else {
+      border-radius: $scrollbarThumbBorderRadius;
+    }
+  }
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin bp($width,$direction:max) {
+  @if $direction == min {
+    @media screen and (min-width: $width) {
+      @content;
+    }
+  } @else {
+    @media screen and (max-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin border-radius($corner:4px) {
+  @if length($corner) != 1 {
+    -webkit-border-radius: nth($corner, 1) nth($corner, 2) nth($corner, 3) nth($corner, 4);
+    border-radius: nth($corner, 1) nth($corner, 2) nth($corner, 3) nth($corner, 4);
+  } @else {
+    -webkit-border-radius: $corner;
+    -moz-border-radius: $corner;
+    border-radius: $corner;
+  }
+}
+
+@mixin space($type:margin, $direction:all, $amount:4px) {
+  @if $type == padding {
+    @if $direction == all {
+      padding: $amount;
+    } @else if $direction == top {
+      padding-top: $amount
+    } @else if $direction == left {
+      padding-left: $amount
+    } @else if $direction == right {
+      padding-right: $amount
+    } @else {
+      padding-bottom: $amount
+    }
+  } @else {
+    @if $direction == all {
+      margin: $amount;
+    } @else if $direction == top {
+      margin-top: $amount
+    } @else if $direction == left {
+      margin-left: $amount
+    } @else if $direction == right {
+      margin-right: $amount
+    } @else {
+      margin-bottom: $amount
+    }
+  }
+}

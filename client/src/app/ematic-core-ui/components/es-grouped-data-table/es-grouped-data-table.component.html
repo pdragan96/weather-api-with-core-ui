@@ -1,0 +1,62 @@
+<div class="grouped-table-scroller table-fixed"
+     [style.width]="getScrollerWidth"
+     (scroll)="updateTableBodyWidth()"
+     #groupTable>
+  <table class="table">
+    <thead>
+    <th *ngFor="let column of columns; trackBy: trackByIndex"
+        [hidden]="column['hidden']"
+        [ngClass]="column['class']">
+      <div class="text">
+        {{ column.headerText }}
+        <span class="tooltip" *ngIf="column['headerTooltip']">
+          <i class="icon-info" [esTooltip]="column['headerTooltip']" tooltipPosition="top" tooltipTextAlignment="left"></i>
+        </span>
+      </div>
+    </th>
+    </thead>
+  </table>
+  <div class="table-body-scroll" [style.width]="tableBodyWidth" [style.height]="tableHeight">
+    <table class="table">
+      <tbody>
+      <tr class="info" *ngIf="isLoading">
+        <td [attr.colspan]="columns.length">
+          <es-loader></es-loader>
+        </td>
+      </tr>
+      <tr class="info" *ngIf="!isLoading && records.length === 0">
+        <td [attr.colspan]="columns.length">
+          <span>No records available</span>
+        </td>
+      </tr>
+      <ng-container *ngFor="let groupedRecord of records; trackBy: trackByIndex">
+        <tr *ngFor="let record of getRecordGroup(groupedRecord), let i = index; trackBy: trackByIndex" [attr.index]="i">
+          <td *ngFor="let group of getGroups(i), let j = index; trackBy: trackByIndex"
+              class="group"
+              [attr.rowspan]="getRecordGroup(groupedRecord).length"
+              [hidden]="group['hidden']"
+              [ngClass]="group['class']">
+            <div>{{ formatColumn(groupedRecord, record, group, j) }}</div>
+          </td>
+          <td *ngFor="let column of getColumns(), let k = index; trackBy: trackByIndex"
+              [hidden]="column['hidden']"
+              [ngClass]="column['class']">
+              <span [class.clickable]="column.clickable" *ngIf="column.clickable"
+                    (click)="handleOnClick(groupedRecord, column, i)">
+                <span *ngIf="!column['dataTooltip']">
+                  {{ formatColumn(groupedRecord, record, column) }}
+                </span>
+                <span class="tooltip" *ngIf="column['dataTooltip']" [esTooltip]="column['dataTooltip']"
+                      tooltipPosition="top" tooltipTextAlignment="left"
+                      [isTooltipHidden]="shouldHideTooltip">
+                  {{ formatColumn(groupedRecord, record, column) }}
+                </span>
+              </span>
+            <span *ngIf="!column.clickable">{{ formatColumn(groupedRecord, record, column, k) }}</span>
+          </td>
+        </tr>
+      </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

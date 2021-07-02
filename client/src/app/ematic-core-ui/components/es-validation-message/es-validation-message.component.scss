@@ -1,0 +1,15 @@
+@import "../../scss/helpers/helpers_all";
+
+.es-validation-message {  
+  color: $color-error;
+  text-transform: uppercase;
+	font-weight: 600;
+  text-align: left;
+  font-size: 1.0rem;
+  letter-spacing: .03em;
+  padding: 8px;
+  background-color: #FFF;
+  border-radius: 4px;  
+  -moz-box-shadow: 1px 1px 11px rgba(0, 0, 0, 0.14);
+  box-shadow: 1px 1px 11px rgba(0, 0, 0, 0.14);  
+}

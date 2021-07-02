@@ -1,0 +1,24 @@
+<div class="es-tag-select-container rounded">
+  <div class="container">
+    <span class="selector-placeholder" (click)="openTagSelectList()">
+      <i class="icon-right-wide"></i>
+
+      <div *ngIf="selectedTags.length" class="select-placeholder">
+        <span class="property-tag" *ngFor="let tag of selectedTags">
+          {{ tag.display }}
+          <i class="icon-x" (click)="onChangeTag(tag)"></i>
+        </span>
+      </div>
+      <span *ngIf="!selectedTags.length" class="select-placeholder">Select Chart Property...</span>
+    </span>
+
+    <div class="tag-list-container" *ngIf="isTagSelectListOpen" [@fadeIn]="true">
+      <ul class="tag-list">
+        <li class="tag" *ngFor="let tag of data" (click)="onChangeTag(tag)">
+          <span class="tag-status" [ngClass]="{'checked': isTagSelected(tag)}"></span>
+          <span>{{ tag.display }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

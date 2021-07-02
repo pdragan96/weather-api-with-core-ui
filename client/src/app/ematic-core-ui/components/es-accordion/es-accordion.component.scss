@@ -1,0 +1,59 @@
+@import "../../../ematic-core-ui/scss/helpers/variables";
+
+.es-accordion {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  border-radius: 2px;
+  background-color: $text-white;
+  box-shadow: 1px 1px 11px 0 $box-shadow-accordion;
+  position: relative;
+
+  .header {
+    display: flex;
+    flex-direction: row;
+
+    .body {
+      flex: 1;
+    }
+
+    .expander {
+      font-size: 16px;
+      color: $list-color;
+      user-select: none;
+      position: absolute;
+      right: 20px;
+
+      &.btn {
+        background-color: $primary-color;
+        font-size: 1.3rem;
+        border-radius: 30px;
+        border-color: $primary-color;
+        color: $text-white;
+        padding: 0.6rem 1.4rem;
+
+        i {
+          margin-left: 1rem;
+        }
+      }
+
+      i {
+        display: inline-block;
+      }
+
+      &.expanded {
+        i {
+          transform: rotate(90deg);
+        }
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .content {
+    padding-top: 20px;
+  }
+}

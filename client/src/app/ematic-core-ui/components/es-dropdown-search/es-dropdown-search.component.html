@@ -1,0 +1,36 @@
+<div class="dropdown-container">
+  <es-text-field *ngIf="searchable" #searchField
+                 name="search"
+                 [placeholder]="placeholderText"
+                 [autocomplete]="'nope'"
+                 [readonly]="isReadonly"
+                 [isRounded]="isRounded"
+                 (click)="onToggleDropdown()"
+                 (keyup)="onOpenDropdownOnKeyPress($event)"
+                 (input)="onQueryChange($event)">
+  </es-text-field>
+  <es-dropdown-container
+    [arrowPosition]="dropdownAlignment"
+    [pointerBottom]="pointerBottom"
+    (cancelClick)="onDropdownClose()"
+    esDropdown
+    [dropdownAlignment]="dropdownAlignment"
+    [disableTopDropdownAlignment]="disableTopDropdownAlignment"
+    [containerElement]="_itemsContainer"
+    [isRounded]="isRounded"
+    (hide)="onItemsHidden()"
+    (pointerBottom)="onPointerBottom($event)"
+    *ngIf="_itemsVisible">
+    <ul *ngIf="items || items?.length !== 0" class="dropdown-list" #itemsList>
+      <li
+        class="list-item"
+        *ngFor="let item of items; let i = index, trackBy:itemsTrackBy"
+        (click)="onItemSelect(item, i)"
+        (mouseenter)="onItemMouseEnter($event, i)"
+        [class.hovered]="item.hovered">
+        {{ item.text }}
+      </li>
+    </ul>
+    <p *ngIf="!items || items?.length === 0" class="dropdown-empty">No items available.</p>
+  </es-dropdown-container>
+</div>

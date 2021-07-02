@@ -1,0 +1,122 @@
+@import "../../scss/helpers/helpers_all";
+
+.es-tag-select-container {
+  position: relative;
+  display: block;
+  border-bottom: 0;
+  font-size: 14px;
+  z-index: 1;
+  border-radius: 2px;
+
+  &.rounded {
+    border-radius: 40px;
+    background: $text-white;
+    transition: all 0.3s ease;
+    border: 1px solid $primary-color;
+    height: $input-height;
+    line-height: $input-height;
+    padding: 0;
+  }
+
+  .container {
+
+    .tag-list-container {
+      position: relative;
+      top: calc(#{$input-height} + 2px);
+
+      .tag-list {
+        background-color: $text-white;
+        padding: 2rem;
+        border: 1px solid #F0F0F0;
+        border-radius: 4px;
+        box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.09);
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .tag {
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          margin-right: 3rem;
+
+          .tag-status {
+            height: 17px;
+            width: 17px;
+            background-color: $text-white;
+            border: 1px solid $secondary-color;
+            border-radius: 3px;
+            display: inline-block;
+            margin-right: 1rem;
+            position: relative;
+
+            &.checked {
+              background-color: $secondary-color;
+
+              &:after {
+                display: block;
+              }
+            }
+
+            &:after {
+              content: '';
+              position: absolute;
+              display: none;
+              left: 6px;
+              top: 1px;
+              width: 5px;
+              height: 10px;
+              border: solid $text-white;
+              border-width: 0 1.5px 1.5px 0;
+              -webkit-transform: rotate(45deg);
+              -ms-transform: rotate(45deg);
+              transform: rotate(45deg);
+            }
+          }
+        }
+      }
+    }
+
+    .selector-placeholder {
+      display: block;
+      cursor: pointer;
+      padding-left: 1rem;
+
+      .icon-right-wide {
+        position: absolute;
+        right: 2rem;
+
+        &:before {
+          transform: rotate(90deg);
+        }
+      }
+
+      .select-placeholder {
+        position: absolute;
+        z-index: 0;
+        display: inline-block;
+        width: 100%;
+        color: lighten($input-color, 13%);
+        border: none;
+        line-height: 40px;
+        margin-left: 10px;
+
+        .property-tag {
+          background: $secondary-color;
+          color: $text-white;
+          padding: .4rem 2rem;
+          border-radius: 20px;
+          margin: .3rem;
+          cursor: default;
+
+          i {
+            margin-left: 1rem;
+            color: $text-white;
+            font-size: 12px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

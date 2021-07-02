@@ -1,0 +1,47 @@
+@import "../scss/helpers/variables";
+
+.info-box {
+  font-size: 1.4rem;
+  font-weight: 400;
+  border-radius: 2px;
+  padding: .4rem 1.4rem;
+  line-height: 2;
+}
+
+.info-box-error {
+  background: lighten($color-error, 5%);
+  color: $text-white;
+}
+
+.info-box-warning {
+  background: lighten($color-warning, 5%);
+  color: $text-white;
+}
+
+.info-box-info {
+  background: lighten($primary-color, 5%);
+  color: $text-white;
+}
+
+.info-box-success {
+  background: lighten($color-success, 5%);
+  color: $text-white;
+}
+
+.info-box-transparent {
+  border: 1px solid $primary-color;
+  background-color: $text-white;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  user-select: none;
+
+  .c-checkbox {
+    margin-top: 0;
+    color: $primary-color;
+  }
+
+  .c_indicator {
+    border-color: $primary-color;
+    top: 3px;
+  }
+}

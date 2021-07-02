@@ -1,0 +1,43 @@
+.es-form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  .label {
+    display: flex;
+    cursor: default;
+  }
+
+  &.top {
+    .label, .field {
+      flex: 1;
+    }
+  }
+
+  &.left,
+  &.right {
+    flex-direction: row;
+
+    .label {
+      span {
+        margin: auto 0;
+      }
+    }
+
+    .field {
+      flex: 1;
+    }
+  }
+
+  &.left {
+    .label {
+      padding: 2px 12px 2px 2px;
+    }
+  }
+
+  &.right {
+    .label {
+      padding: 2px 2px 2px 12px;
+    }
+  }
+}

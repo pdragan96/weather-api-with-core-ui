@@ -1,0 +1,14 @@
+<div [hidden]="!active" class="pane">
+  <es-accordion *ngFor="let data of accordionData">
+    <ng-container header>
+      {{ data.header }}
+    </ng-container>
+    <ng-container content>
+      <p>{{ data.content }}</p>
+      <ul *ngIf="data.list">
+        <li *ngFor="let item of data.list">{{ item }}</li>
+      </ul>
+    </ng-container>
+  </es-accordion>
+  <ng-content></ng-content>
+</div>

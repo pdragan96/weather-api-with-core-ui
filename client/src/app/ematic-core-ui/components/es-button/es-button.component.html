@@ -1,0 +1,17 @@
+<button [ngClass]="btnClass"
+        [class.btn-rounded]="isRounded"
+        type="button"
+        [disabled]="disabled"
+        (click)="doClick()">
+
+  <ul [style.opacity]="loading ? 1 : 0"
+      class="loading-dots">
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <div [style.opacity]="loading ? 0 : 1"
+       [innerHtml]="text">
+  </div>
+</button>

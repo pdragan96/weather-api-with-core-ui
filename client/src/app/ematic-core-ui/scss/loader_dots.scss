@@ -1,0 +1,83 @@
+.loading-dots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 0;
+
+  li {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    margin: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #FFF;
+    border-radius: 100%;
+    transform: translateZ(0);
+    animation: loading-anima 1.6s infinite;
+
+    &:nth-child(1n) {
+      left: -16px;
+      animation-delay: 0s;
+    }
+
+    &:nth-child(2n) {
+      left: -4px;
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3n) {
+      left: 8px;
+      animation-delay: 0.4s;
+    }
+
+    .btn-primary & {
+      background-color: #fff;
+    }
+
+    .btn-secondary & {
+      background-color: #4a9ce9;
+    }
+
+    .btn-warning & {
+      background-color: #ff9b1d;
+    }
+
+    .btn-danger & {
+      background-color: #ff0242;
+    }
+
+    .btn-info & {
+      background-color: #46b8da;
+    }
+
+    .btn-success & {
+      background-color: #fff;
+    }
+
+    .btn & {
+      background-color: #333;
+    }
+  }
+}
+
+@keyframes loading-anima {
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.5);
+  }
+}
+
+// <ul class="loading-dots">
+//     <li></li>
+//     <li></li>
+//     <li></li>
+//   </ul>

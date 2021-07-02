@@ -1,0 +1,31 @@
+<div class="wizard">
+  <div class="header">
+    <div class="item"
+      [class.active]="step.isActive"
+      [class.visited]="step.isVisited"
+      [class.disabled]="!step.isVisited"
+      *ngFor="let step of steps; let i = index"
+      (click)="onShowStep(step)">
+      {{ step.titleText || i + 1 }}
+    </div>
+  </div>
+  <div class="content" #content>
+    <div class="scroller" #scroller>
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <div class="footer">
+    <button type="button"
+      class="btn-primary previous"
+      *ngIf="hasPreviousStep && this.activeStep.showPreviousButton"
+      (click)="onPrevious()">Previous</button>
+    <button type="button"
+      class="btn-success completed"
+      *ngIf="hasPreviousStep && this.activeStep.showCompleteButton"
+      (click)="onComplete()">Finish</button>
+    <button type="button"
+      class="btn-primary"
+      *ngIf="hasNextStep && this.activeStep.showNextButton"
+      (click)="onNext()">Next</button>
+  </div>
+</div>

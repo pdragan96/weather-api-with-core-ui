@@ -1,0 +1,66 @@
+@import "../../scss/helpers/helpers_all";
+
+.es-pager {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  line-height: 24px;
+  font-size: 14px;
+  color: $form-label;
+  font-weight: 600;
+  user-select: none;
+
+  .es-pager-wrapper {
+    display: block;
+
+    .es-pager-body {
+      display: block;
+      cursor: default;
+
+      .es-jump-page {
+        vertical-align: middle;
+        display: inline-block;
+        overflow: hidden;
+      }
+
+      .es-pager-item {
+        display: inline-block;
+        vertical-align: middle;
+        height: 32px;
+        min-width: 32px;
+        padding: 4px;
+        background: transparent;
+        text-align: center;
+        cursor: pointer;
+
+        &.es-pager-disabled {
+          opacity: .4;
+          cursor: not-allowed;
+        }
+
+        &.es-pager-selected {
+          color: $primary-color;
+          border: 1px solid $primary-color;
+          border-radius: 2px;
+
+          &.is-rounded {
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .es-pager-previous,
+      .es-pager-next {
+        color: $input-color;
+        font-weight: 600;
+      }
+
+      .es-pager-etc {
+        cursor: default;
+      }
+    }
+  }
+
+  &.compact {
+    margin: 0;
+  }
+}

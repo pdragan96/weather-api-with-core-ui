@@ -1,0 +1,45 @@
+.loader-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hexagon-loader {
+  transform: translate(-50%, -50%) scale(0.6);
+  width: 100px;
+}
+
+.hexagon-loader.small {
+  width: 50px;
+}
+
+.hexagon-loader.small .logo {
+  width: 24px;
+}
+
+.hexagon-loader .logo {
+  width: 42px;
+}
+
+.hexagon-container {
+  overflow: visible;
+  background-color: transparent;
+}
+
+.hexagon-container .hexagon-base, .hexagon-container .hexagon-line-animation {
+  fill: transparent;
+  stroke-miterlimit: 16;
+  stroke-width: 10px;
+}
+
+.hexagon-container .hexagon-base {
+  stroke: #FFF;
+}
+
+.hexagon-container .hexagon-line-animation {
+  stroke: #66BC48;
+  stroke-linecap: round;
+  animation: dash 2s linear;
+  animation-iteration-count: infinite;
+}

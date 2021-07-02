@@ -1,0 +1,31 @@
+.pseudo-icon-clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.pseudo-icon-clear:before, .pseudo-icon-clear:after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 2px;
+  background-color: #4D5059;
+}
+
+.pseudo-icon-clear:before {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.pseudo-icon-clear:after {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}

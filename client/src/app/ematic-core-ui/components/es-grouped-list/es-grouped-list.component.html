@@ -1,0 +1,37 @@
+<div class="es-grouped-list">
+  <div class="group root"
+       [style.left]="0"
+       [class.current]="groups.length === 0"
+       (click)="onRootGroupClick()">
+    <span>{{ rootGroup.text }}</span>
+  </div>
+  <div class="group" [@group]
+       *ngFor="let group of groups; let i = index, trackBy:itemsTrackBy"
+       [style.left]="groupLeftPosition(i)"
+       [class.current]="i === groups.length - 1"
+       (click)="onGroupClick(group, i)">
+    <span>{{ group.text }}</span>
+  </div>
+  <div class="list-container"
+       [style.left]="listLeftPosition"
+       [@list]="animationTrigger"
+       (@list.start)="onAnimationStart()"
+       (@list.done)="resetAnimation()">
+    <div class="options"
+         *ngIf="groups.length > 0"
+         (click)="onBack()">
+      <span>Back</span>
+    </div>
+    <ul #itemsList
+        class="list">
+      <li class="item"
+          *ngFor="let item of listItems; let i = index, trackBy:itemsTrackBy"
+          [class.selected]="item.selected"
+          [class.hovered]="item.hovered"
+          (click)="onItemClick(item)"
+          (mouseenter)="onItemMouseEnter($event, i)">
+        <span>{{ item.text }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

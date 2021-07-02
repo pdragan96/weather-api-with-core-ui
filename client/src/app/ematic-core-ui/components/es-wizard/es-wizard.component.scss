@@ -1,0 +1,93 @@
+:host {
+  display: block;  
+}
+
+.wizard {
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+
+    .item {
+      display: table-cell;
+      height: 50px;
+      line-height: 50px;
+      vertical-align: top;
+      text-align: center;
+      text-transform: uppercase;
+      font-size: 20px;
+
+      border-bottom: 10px solid lightgray;
+
+      transition: border-bottom-color 0.25s ease-in-out; 
+
+      &.active, &.active.visited {
+        border-bottom-color: lightblue;
+      }
+
+      &.visited {
+        border-bottom-color: blue;
+      }
+
+      &.disabled {
+        opacity: 0.8;
+        pointer-events: none;
+        cursor: default;
+      }
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .content {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    overflow: hidden;
+
+    .scroller {
+      display: table;   
+      height: 100%;      
+      transition: transform 0.5s ease-in-out;
+    }
+  }
+
+  .footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+
+    border-top: 1px solid black;
+    padding: 10px 10px;    
+
+    button {
+      display: block;              
+      float: right;
+    }
+
+    .completed {
+      margin-left: 10px;
+    }
+
+    .previous {
+      float: left;
+    }
+  }
+}

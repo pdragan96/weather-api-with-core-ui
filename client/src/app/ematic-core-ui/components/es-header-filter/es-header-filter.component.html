@@ -1,0 +1,92 @@
+<div class="es-header-filter"
+     [class.dropdown-filter]="dropdownFilter"
+     [class.active]="filterValue !== null">
+  <div *ngIf="sortable"
+       class="sorter">
+    <i [class.icon-down]="sortAsc"
+       [class.icon-up]="!sortAsc"
+       (click)="onSortClick()"></i>
+  </div>
+  <div class="container">
+    <div class="header-text">
+      {{ headerText }}
+    </div>
+    <div *ngIf="type !== filterType.NONE"
+         class="filter-text">
+      <input #inputField
+             *ngIf="inputFilter"
+             type="text"
+             [(ngModel)]="filterValue"
+             (ngModelChange)="onFilterModelChange($event)"/>
+      <span *ngIf="dropdownFilter">
+        {{ filterText }}
+      </span>
+    </div>
+    <div *ngIf="type !== filterType.NONE"
+         class="filter">
+      <div *ngIf="inputFilter && filterValue === null"
+           class="icon-search"
+           (click)="toggleInputFilter()"></div>
+      <div *ngIf="inputFilter && filterValue !== null"
+           class="pseudo-icon-clear"
+           (click)="toggleInputFilter()"></div>
+
+      <es-lookup *ngIf="type === filterType.LOOKUP"
+                 [compact]="true"
+                 [valueField]="valueField"
+                 [displayField]="displayField"
+                 [searchable]="searchable"
+                 [displayWith]="displayWith"
+                 dropdownAlignment="right"
+                 [query]="query"
+                 [(ngModel)]="filterValue"
+                 (ngModelChange)="onFilterModelChange($event)">
+      </es-lookup>
+
+      <es-date-picker *ngIf="type === filterType.DATE"
+                      [compact]="true"
+                      [maxDate]="maxDate"
+                      dropdownAlignment="right"
+                      [(ngModel)]="filterValue"
+                      (ngModelChange)="onFilterModelChange($event)">
+      </es-date-picker>
+
+      <es-range-picker *ngIf="type === filterType.DATE_RANGE"
+                       [compact]="true"
+                       [closable]="true"
+                       [availableDatesFrom]="availableDatesFrom"
+                       [availableDatesTo]="availableDatesTo"
+                       [initialStartDate]="initialStartDate"
+                       [initialEndDate]="initialEndDate"
+                       displayFormat="DD.MM.YYYY."
+                       dropdownAlignment="right"
+                       [(ngModel)]="filterValue"
+                       (ngModelChange)="onFilterModelChange($event)">
+      </es-range-picker>
+
+      <es-multi-select *ngIf="type === filterType.MULTI_SELECT"
+                       [compact]="true"
+                       name="multiSelect"
+                       dropdownAlignment="right"
+                       [valueField]="valueField"
+                       [displayField]="displayField"
+                       [searchable]="searchable"
+                       [displayWith]="displayWith"
+                       [query]="query"
+                       [(ngModel)]="filterValue"
+                       (ngModelChange)="onFilterModelChange($event)">
+      </es-multi-select>
+
+      <es-select *ngIf="type === filterType.SELECT"
+                 [compact]="true"
+                 name="select"
+                 dropdownAlignment="right"
+                 [searchable]="searchable"
+                 [displayWith]="displayWith"
+                 [query]="query"
+                 [(ngModel)]="filterValue"
+                 (ngModelChange)="onFilterModelChange($event)">
+      </es-select>
+    </div>
+  </div>
+</div>

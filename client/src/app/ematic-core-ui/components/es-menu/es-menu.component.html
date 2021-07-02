@@ -1,0 +1,47 @@
+<button *ngIf="!hasCustomizedButton"
+        class="btn-block"
+        [ngClass]="btnClass"
+        [class.btn-trans]="hasTransparentColors"
+        [class.btn-circle]="hideText || !text"
+        [disabled]="isDisabled"
+        (click)="onDropdownSelect()"
+        tabindex="-1">
+  <i class="icon"
+     *ngIf="iconClass"
+     [ngClass]="iconClass">
+  </i>
+  <span class="text"
+        *ngIf="text"
+        [class.d-none]="hideText"
+        [innerHtml]="text">
+  </span>
+</button>
+<ng-content select="[customized-button]" *ngIf="hasCustomizedButton"></ng-content>
+<es-dropdown-container esDropdown
+                       data-html2canvas-ignore="true"
+                       [arrowPosition]="dropdownAlignment"
+                       [pointerBottom]="pointerBottom"
+                       (cancelClick)="onDropdownClose()"
+                       [dropdownAlignment]="dropdownAlignment"
+                       [disableTopDropdownAlignment]="disableTopDropdownAlignment"
+                       [containerElement]="_itemsContainer"
+                       [isRounded]="true"
+                       (hide)="onItemsHidden()"
+                       (pointerBottom)="onPointerBottom($event)"
+                       *ngIf="_itemsVisible">
+  <ul class="es-menu-list">
+    <li *ngFor="let item of menuListItems; let i = index, trackBy:itemsTrackBy"
+        class="item"
+        [class.hovered]="item.hovered"
+        (click)="executeAction(item.action)"
+        (mouseenter)="onItemMouseEnter($event, i)">
+      <div class="icon"
+           *ngIf="item.iconClass"
+           [ngClass]="item.iconClass">
+      </div>
+      <div class="text"
+           [innerHtml]="item.text">
+      </div>
+    </li>
+  </ul>
+</es-dropdown-container>

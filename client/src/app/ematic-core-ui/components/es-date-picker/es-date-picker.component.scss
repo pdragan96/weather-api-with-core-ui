@@ -1,0 +1,23 @@
+.date-picker-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .icon-left,
+  .icon-right {
+    flex: 0.1428;
+    font-size: 12px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .disabled {
+    opacity: 0.4;
+    user-select: none;
+    cursor: not-allowed;
+  }
+}

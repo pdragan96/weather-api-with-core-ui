@@ -1,0 +1,40 @@
+<div class="es-pager"
+     *ngIf="showPager"
+     [class.compact]="compact"
+     [style.text-align]="position">
+  <div class="es-pager-wrapper">
+    <div class="es-pager-body">
+      <button class="es-pager-item es-pager-previous"
+              [disabled]="firstAndPreviousPageDisabled"
+              [class.es-pager-disabled]="firstAndPreviousPageDisabled"
+              (click)="setPage(1)">
+        First
+      </button>
+      <button class="es-pager-item es-pager-previous"
+              [disabled]="firstAndPreviousPageDisabled"
+              [class.es-pager-disabled]="firstAndPreviousPageDisabled"
+              (click)="setPage(pagerData.currentPage - 1)">
+        <i class="icon-left"></i>
+      </button>
+      <div *ngFor="let page of pagerData.pages"
+           class="es-pager-item"
+           [class.es-pager-selected]="pagerData.currentPage === page"
+           [class.is-rounded]="isRounded"
+           (click)="setPage(page)">
+        <span [@fadeInOut]>{{ page }}</span>
+      </div>
+      <button class="es-pager-item es-pager-next"
+              [disabled]="lastAndNextPageDisabled"
+              [class.es-pager-disabled]="lastAndNextPageDisabled"
+              (click)="setPage(pagerData.currentPage + 1)">
+        <i class="icon-right"></i>
+      </button>
+      <button class="es-pager-item es-pager-next"
+              [disabled]="lastAndNextPageDisabled"
+              [class.es-pager-disabled]="lastAndNextPageDisabled"
+              (click)="setPage(pagerData.totalPages)">
+        Last
+      </button>
+    </div>
+  </div>
+</div>

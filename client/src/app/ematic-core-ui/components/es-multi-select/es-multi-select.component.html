@@ -1,0 +1,65 @@
+<es-dropdown-field #container
+                   [displayText]="displayText"
+                   [showErrorMessage]="showErrorMessage"
+                   [errorMessage]="errorMessage"
+                   [showDropdownIcon]="showDropdownIcon"
+                   [showClearIcon]="showClearIcon"
+                   [compact]="compact"
+                   [hasTransparentColors]="hasTransparentColors"
+                   [isRounded]="isRounded"
+                   (clicked)="onDropdownSelect()"
+                   (cleared)="onClear()">
+</es-dropdown-field>
+<es-dropdown-container
+  [arrowPosition]="dropdownAlignment"
+  [pointerBottom]="pointerBottom"
+  [hasOkButton]="true"
+  [okButtonText]="applyText"
+  [isRounded]="isRounded"
+  (okClick)="onApply()"
+  (cancelClick)="onDropdownClose()"
+  esDropdown
+  [dropdownAlignment]="dropdownAlignment"
+  [disableTopDropdownAlignment]="disableTopDropdownAlignment"
+  [containerElement]="container.element"
+  (hide)="onItemsHidden()"
+  (pointerBottom)="onPointerBottom($event)"
+  *ngIf="_itemsVisible">
+  <input *ngIf="searchable" #searchField
+         type="text"
+         class="es-dropdown-select-search"
+         [ngModel]="latestQueryString"
+         [class.disabled]="isLoading"
+         [placeholder]="searchPlaceholder"
+         (input)="onQueryChange($event)"/>
+  <ul class="es-dropdown-select-list" #itemsList>
+    <li *ngFor="let item of items; let i = index, trackBy:itemsTrackBy"
+        class="item"
+        [class.hovered]="item.hovered"
+        (mouseenter)="onItemMouseEnter($event, i)">
+      <es-checkbox
+        [name]="'es-multi-select-items-' + '-' + i"
+        [labelText]="item.text"
+        [htmlMode]="true"
+        [isChecked]="item.checked"
+        (changed)="toggleChecked($event, item)">
+      </es-checkbox>
+    </li>
+    <li class="item" *ngIf="isLoading">
+      <es-loader [small]="true"></es-loader>
+    </li>
+    <li class="item" *ngIf="shouldDisplayTypeToSearchMessage()">
+      Type to search.
+    </li>
+    <li class="item" *ngIf="shouldDisplayNoResultsFoundMessage()">
+      No results found.
+    </li>
+  </ul>
+  <es-button
+    *ngIf="!_isMobile"
+    class="apply-button"
+    [text]="applyText"
+    [isRounded]="isRounded"
+    (clicked)="onApply()">
+  </es-button>
+</es-dropdown-container>

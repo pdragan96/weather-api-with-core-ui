@@ -1,0 +1,15 @@
+@import "../../scss/helpers/helpers_all";
+
+:host ::ng-deep es-accordion {
+  .es-accordion {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid $accordion-border;
+    border-top: 1px solid $accordion-border;
+    box-shadow: none;
+
+    .header {
+      font-weight: 700;
+      color: $primary-color;
+    }
+  }
+}

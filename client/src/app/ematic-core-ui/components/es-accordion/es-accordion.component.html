@@ -1,0 +1,19 @@
+<div class="es-accordion">
+  <div class="header">
+    <div class="body">
+      <ng-content select=[header]></ng-content>
+    </div>
+    <div *ngIf="expandable"
+         class="expander"
+         [class.btn]="hasDetailsButton"
+         [class.expanded]="expanded"
+         (click)="onAccordionExpand()">
+      <span class="btn-label" *ngIf="hasDetailsButton">Details</span>
+      <i class="icon-right-wide" [@expander]="animationTrigger"></i>
+    </div>
+  </div>
+  <div *ngIf="expanded" class="content"
+       [@accordionContent]="!hasPaddingTop ? { value: '*', params: { paddingTop: '0px' } } : { value: '*', params: { paddingTop: '20px' } }">
+    <ng-content select=[content]></ng-content>
+  </div>
+</div>

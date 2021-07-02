@@ -1,0 +1,22 @@
+<es-field
+  [showErrorMessage]="showErrorMessage"
+  [errorMessage]="errorMessage"
+  [showClearIcon]="showClearIcon"
+  [showCopyIcon]="showCopyIcon"
+  [isRounded]="isRounded"
+  (clear)="onClear()"
+  (copyValue)="onCopyValue()">
+  <input #inputField
+         class="es-input-field"
+         [class.rounded]="isRounded"
+         tabindex="-1"
+         [attr.type]="type"
+         [name]="name"
+         [disabled]="isEsDisabled"
+         [placeholder]="placeholder"
+         [autocomplete]="autocomplete"
+         [(ngModel)]="innerValue"
+         (focus)="onInnerInputFocus()"
+         (blur)="onInnerInputBlur()"
+         (keypress)="onInnerInputKeyPress($event)"/>
+</es-field>

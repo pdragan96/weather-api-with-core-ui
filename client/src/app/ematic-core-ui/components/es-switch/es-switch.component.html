@@ -1,0 +1,29 @@
+<label class="es-switch"
+  [class.left]="labelPosition === 'left'"
+  [class.right]="labelPosition === 'right'">
+  <div *ngIf="showLeftLabel"
+    class="es-label label"  
+    [innerHtml]="labelText">
+  </div>
+  <input *ngIf="!htmlMode"
+    type="checkbox"
+    [name]="name"
+    [disabled]="isEsDisabled"
+    [(ngModel)]="innerValue" />
+  <input *ngIf="htmlMode"
+    type="checkbox"
+    [name]="name"
+    [disabled]="isEsDisabled"
+    [checked]="isChecked"    
+    (change)="onChange($event)" />  
+  <div class="slider"
+    [class.round]="round"
+    [class.disabled]="isEsDisabled"
+    [class.checked]="showCheck"
+    [class.unchecked]="uncheckedClass">
+  </div>
+  <div *ngIf="showRightLabel"
+    class="es-label label"
+    [innerHtml]="labelText">
+  </div>
+</label>

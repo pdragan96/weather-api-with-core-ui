@@ -1,0 +1,68 @@
+@import "../../scss/helpers/helpers_all";
+
+.table-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  tr {
+    font-size: 1.2rem;
+
+    @include bp($point_4) {
+      font-size: 1rem;
+    }
+
+    th {
+      color: $form-label;
+      font-weight: 500;
+      position: relative;
+      user-select: none;
+      font-size: 1.3rem;
+      white-space: nowrap;
+
+      @include bp($point_4) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .table-wrapper {
+    width: 100%;
+
+    .multi-header-table {
+      width: 100%;
+      position: relative;
+      background: $text-white;
+
+      .table-left {
+        background-color: $text-white;
+        position: absolute;
+        z-index: 2;
+        min-width: 310px;
+        top: 0;
+        left: 0;
+
+        @include bp($point_3) {
+          min-width: 235px;
+        }
+
+        &.shadow {
+          box-shadow: 6px 0 4px -6px desaturate($list-color, 40%);
+        }
+      }
+
+      .table-right {
+        overflow: auto;
+
+        .table {
+          table-layout: fixed;
+
+          .tooltip {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

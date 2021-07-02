@@ -1,0 +1,86 @@
+<es-dropdown-field #container
+                   [displayText]="displayText"
+                   [showErrorMessage]="showErrorMessage"
+                   [errorMessage]="errorMessage"
+                   [showDropdownIcon]="showDropdownIcon"
+                   [showClearIcon]="showClearIcon"
+                   [compact]="compact"
+                   [hasTransparentColors]="hasTransparentColors"
+                   [isRounded]="isRounded"
+                   (clicked)="onDropdownSelect()"
+                   (cleared)="onClear()">
+</es-dropdown-field>
+<es-dropdown-container
+  class="es-range-picker-container"
+  [arrowPosition]="dropdownAlignment"
+  [pointerBottom]="pointerBottom"
+  [hasOkButton]="true"
+  okButtonText="Apply"
+  (okClick)="onApply()"
+  (cancelClick)="onDropdownClose()"
+  esDropdown
+  [dropdownAlignment]="dropdownAlignment"
+  [disableTopDropdownAlignment]="disableTopDropdownAlignment"
+  [closable]="closable"
+  [containerElement]="container.element"
+  [isRounded]="isRounded"
+  (hide)="onItemsHidden()"
+  (pointerBottom)="onPointerBottom($event)"
+  *ngIf="_itemsVisible">
+  <div class="es-range-picker-item">
+    <es-date-selector #startDateSelector
+                      [date]="dateRange.startDate"
+                      [maxDate]="startDateMax"
+                      [isRange]="true"
+                      [dataStartDate]="availableDatesFrom"
+                      [displayFormat]="displayFormat"
+                      (selected)="onStartDateSelect($event)">
+    </es-date-selector>
+    <div class="es-range-picker-selected-date">{{startDateSelector.getFormattedValue()}}</div>
+  </div>
+  <div class="es-range-picker-item">
+    <es-date-selector #endDateSelector
+                      [date]="dateRange.endDate"
+                      [minDate]="endDateMin"
+                      [dataEndDate]="availableDatesTo"
+                      [isRange]="true"
+                      [displayFormat]="displayFormat"
+                      (selected)="onEndDateSelect($event)">
+    </es-date-selector>
+    <div class="es-range-picker-selected-date">{{endDateSelector.getFormattedValue()}}</div>
+  </div>
+  <div class="es-range-picker-item es-range-picker-options">
+    <ul *ngIf="showOptions">
+      <li><button (click)="onOption('last-7-days')" [disabled]="disabled">Last 7 Days</button></li>
+      <li><button (click)="onOption('last-14-days')" [disabled]="disabled">Last 14 Days</button></li>
+      <li><button (click)="onOption('last-30-days')" [disabled]="disabled">Last 30 Days</button></li>
+      <li><button (click)="onOption('last-60-days')" [disabled]="disabled">Last 60 Days</button></li>
+      <li><button (click)="onOption('last-90-days')" [disabled]="disabled">Last 90 Days</button></li>
+      <li><button (click)="onOption('last-180-days')" [disabled]="disabled">Last 180 Days</button></li>
+      <li><button (click)="onOption('last-365-days')" [disabled]="disabled">Last 365 Days</button></li>
+      <li><button (click)="onOption('this-month')" [disabled]="disabled">This Month</button></li>
+      <li><button (click)="onOption('past-month')" [disabled]="disabled">Last Month</button></li>
+      <li><button (click)="onOption('this-quarter')" [disabled]="disabled">This Quarter</button></li>
+      <li><button (click)="onOption('past-quarter')" [disabled]="disabled">Last Quarter</button></li>
+      <li><button (click)="onOption('this-year')" [disabled]="disabled">This Year</button></li>
+      <li><button (click)="onOption('past-year')" [disabled]="disabled">Last Year</button></li>
+    </ul>
+    <div class="buttons" *ngIf="!_isMobile">
+      <es-button
+        class="apply"
+        text="Apply"
+        (clicked)="onApply()"
+        [isRounded]="isRounded"
+        [disabled]="disabled">
+      </es-button>
+      <es-button
+        class="cancel"
+        text="Cancel"
+        type="cancel"
+        (clicked)="onCancel()"
+        [isRounded]="isRounded"
+        [disabled]="disabled">
+      </es-button>
+    </div>
+  </div>
+</es-dropdown-container>

@@ -1,0 +1,18 @@
+<div class="es-form-field"
+     [ngClass]="labelClass">
+  <div *ngIf="topLeftPosition"
+       class="es-label label"
+       [style.width]="labelWidthString"
+       (click)="onLabelClick()">
+    <span [innerHtml]="labelText"></span>
+  </div>
+  <div class="field">
+    <ng-content></ng-content>
+  </div>
+  <div *ngIf="rightPosition"
+       class="es-label label"
+       [style.width]="labelWidthString"
+       (click)="onLabelClick()">
+    <span [innerHtml]="labelText"></span>
+  </div>
+</div>

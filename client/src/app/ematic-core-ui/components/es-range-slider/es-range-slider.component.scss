@@ -1,0 +1,145 @@
+@import "../../scss/helpers/variables";
+
+:host {
+  width: 100%;
+
+  &.es-disabled .range-slider {
+    opacity: 0.4;
+  }
+}
+
+.range-slider {
+  -webkit-appearance: none;
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin: 16px 0;
+  background: $light-gray2;
+  background-image: -webkit-gradient(linear, 20% 0%, 20% 100%, color-stop(0%, $color-success), color-stop(100%, $color-success));
+  background-image: -webkit-linear-gradient(left, $color-success 0%, $color-success 100%);
+  background-image: -moz-linear-gradient(left, $color-success 0%, $color-success 100%);
+  background-image: -o-linear-gradient(to right, $color-success 0%, $color-success 100%);
+  background-image: linear-gradient(to right, $color-success 0%, $color-success 100%);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+
+  &:focus {
+    outline: none;
+
+    // Chrome
+    &::-webkit-slider-runnable-track {
+      background: transparent;
+    }
+
+    // IE
+    &::-ms-fill-lower {
+      background: transparent;
+    }
+
+    &::-ms-fill-upper {
+      background: transparent;
+    }
+  }
+
+  // Chrome
+  &::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    box-shadow: none;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    box-sizing: border-box;
+  }
+
+  &::-webkit-slider-thumb {
+    box-shadow: none;
+    border: 4px solid $color-success;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -8px;
+  }
+
+  // Mozilla
+  &::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    box-shadow: none;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    outline: 0;
+    box-sizing: border-box;
+  }
+
+  &::-moz-range-thumb {
+    box-shadow: none;
+    border: 4px solid $color-success;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  // IE
+  &::-ms-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    box-sizing: border-box;
+  }
+
+  &::-ms-fill-lower {
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+
+  &::-ms-fill-upper {
+    background: transparent;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+
+  &::-ms-thumb {
+    box-shadow: none;
+    border: 4px solid $color-success;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #FFFFFF;
+    cursor: pointer;
+  }
+
+  &:disabled {
+    // Chrome
+    &::-webkit-slider-thumb {
+      cursor: not-allowed;
+    }
+
+    // Mozilla
+    &::-moz-range-thumb {
+      cursor: not-allowed;
+    }
+
+    // IE
+    &::-ms-thumb {
+      cursor: not-allowed;
+    }
+  }
+}
