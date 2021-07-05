@@ -1,11 +1,9 @@
-import { Component, OnDestroy, OnInit, ViewChild, Input } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Subscription, Observable } from 'rxjs';
 import { CitiesService } from '../cities.service';
 import { ICity } from '../city.model';
-import { HttpClient } from '@angular/common/http';
 import { delay } from 'rxjs/operators';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,17 +16,16 @@ export class CitiesDataComponent implements OnInit, OnDestroy {
   postedCity: any;
   private sub: Subscription;
   onCityQuery: (name: string) => Observable<ICity[]>
-  detailsShow = false;
   clickedCity: boolean[] = [];
-  //newCityForm: FormGroup;
-  //@ViewChild('newCityForm') newCityForm:NgForm;
+  @ViewChild('newCityForm') newCityForm: NgForm;
   @ViewChild('cityForm') cityForm: NgForm;
-
   cityData = null;
-  //field = cityData.name;
   field = 'latitude';
   text = 'Save in database';
   cityName: string;
+  emptyField = true;
+
+
 
   constructor(private citiesService: CitiesService) { }
 
@@ -39,10 +36,14 @@ export class CitiesDataComponent implements OnInit, OnDestroy {
 
     this.onCityQuery = (name: string) => {
       this.cityName = name;
-      return this.citiesService.sendNameToServer(name).pipe(delay(50))
+      this.cityData = this.citiesService.sendNameToServer(name).pipe(delay(50));
+      return this.cityData;
     };
   }
 
+  public get city() {
+    return this.cityData;
+  }
 
   showCityDetails(city: ICity) {
     this.cities.forEach((myCity: ICity, index: number) => {
@@ -52,8 +53,21 @@ export class CitiesDataComponent implements OnInit, OnDestroy {
     })
   }
 
+  checkInput() {
+    if (this.cityData) { // ako je null javlja gresku pri pozivu propertija name
+      if (this.cityData.name) {
+        return true;
+      }
+    }
+    else {
+      return false;
+    }
+
+  }
+
   onSave() {
     this.citiesService.postCity(this.cityName);
+    this.cities.push(this.cityData);
   }
 
   ngOnDestroy() {
@@ -61,18 +75,3 @@ export class CitiesDataComponent implements OnInit, OnDestroy {
   }
 }
 
-    // za Reactive Forms, ide u ngOnInit()
-    // this.newCityForm = new FormGroup({
-    //   latitude: new FormControl(null, {
-    //     validators: [Validators.min(-90), Validators.max(90)],
-    //   }),
-    //   longitude: new FormControl(null, {
-    //     validators: [Validators.min(-180), Validators.max(180)],
-    //   }),
-    //   name: new FormControl(null),
-    //   id: new FormControl(null, { validators: [Validators.min(1)] }),
-    //   country: new FormControl(null),
-    //   temperature: new FormControl(null, { validators: [Validators.min(0)] }), // unosi se temperatura u Kelvinima
-    //   weather: new FormControl(null),
-    //   timezone: new FormControl(null),
-    // });

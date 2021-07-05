@@ -4,7 +4,6 @@ import { ICity } from './city.model';
 import { EsDropdownSelect } from '../ematic-core-ui/components/base/es-dropdown-select';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { thomsonCrossSectionDependencies } from 'mathjs';
 
 @Injectable({ providedIn: 'root' })
 export class CitiesService {
@@ -22,9 +21,6 @@ export class CitiesService {
     return this.http.get<ICity[]>('https://localhost:8043/api/weather');
   }
 
-  getCity() {
-    //return this.http.get('https://localhost:8043/api/city');
-  }
 
   sendNameToServer(name: string): Observable<ICity[]> {
     return this.http.get<ICity[]>(`https://localhost:8043/api/city/name/${ name }`);
@@ -34,10 +30,9 @@ export class CitiesService {
     this.http
       .post('https://localhost:8043/api/weather', name)
       .subscribe((resData) => {
-        //  this.getCities();
-
         console.log('Posted successfuly!');
       });
+
   }
 
   getInputContent() {
