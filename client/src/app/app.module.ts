@@ -10,9 +10,10 @@ import { CityTemperature } from './cities/city-temperature.pipe';
 import { Country } from './cities/country.pipe';
 import { Timezone } from './cities/timezone.pipe';
 import { EmaticCoreUIModule } from './ematic-core-ui/ematic-core-ui.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
-  declarations: [ AppComponent, CitiesDataComponent, CityTemperature, Country, Timezone],
+  declarations: [AppComponent, CitiesDataComponent, CityTemperature, Country, Timezone],
   imports: [
 
     BrowserModule,
@@ -20,10 +21,11 @@ import { EmaticCoreUIModule } from './ematic-core-ui/ematic-core-ui.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-     EmaticCoreUIModule,
+    EmaticCoreUIModule,
+    BrowserAnimationsModule
 
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
