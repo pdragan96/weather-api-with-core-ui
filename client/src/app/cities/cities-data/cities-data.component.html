@@ -1,48 +1,49 @@
 <table>
   <tr>
     <th>City</th>
-    <th> Country</th>
+    <th>Country</th>
     <th>Temperature</th>
   </tr>
   <tr *ngFor="let city of cities; let i = index">
     <a class="city" (click)="showCityDetails(city)">
-      <td>{{city.name}}</td>
+      <td>{{ city.name }}</td>
     </a>
-    <div class="none" id='details' *ngIf="clickedCity[i]">
-      <p> <strong>Latitude:</strong>{{city?.coord.lat}}, <strong>Longitude:</strong>{{city?.coord.lon}},
-        <strong>Weather:</strong>{{city.weather[0]?.description}}
-        <strong>Timezone:</strong>{{city?.timezone | timezone}}
+    <div class="details" id="details" *ngIf="clickedCity[i]">
+      <p>
+        <strong>Latitude:</strong>{{ city?.coord.lat }},
+        <strong>Longitude:</strong>{{ city?.coord.lon }},
+        <strong>Weather:</strong>{{ city.weather[0]?.description }}
+        <strong>Timezone:</strong>{{ city?.timezone | timezone }}
       </p>
     </div>
-    <td *ngIf="!clickedCity[i]">{{city.sys?.country | country }}</td>
-    <td *ngIf="!clickedCity[i]">{{ (city.main?.temp | temp)}}</td>
+    <td class="td-item" *ngIf="!clickedCity[i]">
+      {{ city.sys?.country | country }}
+    </td>
+    <td class="td-item" *ngIf="!clickedCity[i]">
+      {{ city.main?.temp | temp }}
+    </td>
   </tr>
-
 </table>
 
+<p class="hint">*Search city by name.</p>
 
-<p class="hint">*Insert city name.</p>
-
-<form #cityForm='ngForm'>
-
+<form #cityForm="ngForm">
   <es-form-field>
     <es-lookup
-      [lazyLoad]='true'
-      [displayField]='field'
-      name='city'
+      [lazyLoad]="true"
+      [displayField]="field"
+      name="city"
       [query]="onCityQuery"
       [placeholder]="'City name:'"
-      [(ngModel)]='cityData'
-      valueField="id"
-      > </es-lookup>
+      [(ngModel)]="cityData"
+      valueField="name"
+    >
+    </es-lookup>
   </es-form-field>
 
-  <es-button [text]='text' (clicked)='onSave()'> </es-button>
-
+  <es-button [text]="text" (clicked)="onSave()" [disabled]="!checkInput()">
+  </es-button>
 </form>
-
-
-
 
 <!-- Template driven  -->
 <!--<form (ngSubmit)="onSubmit()" #newCityForm = 'ngForm' >
