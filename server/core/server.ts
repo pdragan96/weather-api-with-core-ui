@@ -99,10 +99,9 @@ export class Server {
 
     // start server
     server.startServer();
-    server.addCityToDb();
-    // console.log(await server.getByName('nevesinje'));
-    server.refreshData();
 
+    server.addCityToDb();
+    server.refreshData();
 
     return server;
   }
@@ -269,20 +268,16 @@ export class Server {
   }
 
   async addCityToDb() {
-
     const wr = new WeatherRepository(this);
     const dbCities = await wr.query({});
     const size = dbCities.length;
 
-    // const weather = new Weather(this);
-    // weather.newCitiesWeatherData(dbCities);
-
     if (size < 10) {
       const weather = new Weather(this);
       const cities = await weather.getCities(10);
-      for ( const city of cities) {
+      for (const city of cities) {
         const wr = new WeatherRepository(this);
-        wr.create( weather => {
+        wr.create(weather => {
           weather.coord = city.coord;
           weather.weather = city.weather;
           weather.base = city.base;
@@ -298,7 +293,6 @@ export class Server {
           weather.cityId = city.id;
           weather.name = city.name;
           weather.cod = city.cod;
-
         });
       }
       console.log('Succesfuly saved in database');
@@ -307,17 +301,12 @@ export class Server {
     }
   }
 
-  async getByName(name: string) {
-    const weather = new Weather(this);
-    return await weather.cityWeatherByCityName(name);
-  }
-
   async refreshData() {
     try {
       const weather = new Weather(this);
       await weather.cronRefreshData();
     } catch (error) {
-        return console.log('Error: ' + error );
+      return console.log('Error: ' + error);
     }
   }
 

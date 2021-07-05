@@ -8,25 +8,24 @@ import { Weather } from '../../core/weather';
 
 export class CityRouter extends Router {
 
-    constructor(server: Server) {
-        super(server);
-    }
-    initRoutes() {
-        this.router.route('/name/:id').get( this.postName.bind(this));
+  constructor(server: Server) {
+    super(server);
+  }
+  initRoutes() {
+    this.router.route('/name/:id').get(this.postName.bind(this));
+  }
 
-    }
+  async postName(request: IRequest, response: IResponse, next: NextFunction) {
+    try {
+      const weather = new Weather(this.server);
+      const { id } = request.params;
+      const cityWeather = await weather.cityWeatherByCityName(id);
 
-    async postName(request: IRequest, response: IResponse, next: NextFunction) {
-        try {
-            const weather = new Weather(this.server);
-            const {id} = request.params;
-            const cityWeather = await weather.cityWeatherByCityName(id);
-
-            response.data = cityWeather ? [cityWeather] : [];
-            next();
-        } catch ( error ) {
-            next(Router.handleError(error, request, response));
-        }
+      response.data = cityWeather ? [cityWeather] : [];
+      next();
+    } catch (error) {
+      next(Router.handleError(error, request, response));
     }
+  }
 
 }
