@@ -1,3 +1,7 @@
+#WeatherAPI application
+
+This is my app!
+
 # NodeJS Server #
 
 This is a NodeJS, Express and MongoDB application written using Typescript.
