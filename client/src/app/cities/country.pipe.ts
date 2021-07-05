@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class Country implements PipeTransform {
 
-  transform (country:string){
+  transform(country: string) {
     if (country === 'BA') return 'Bosnia & Herzegovine';
     if (country === 'RU') return 'Russia';
     if (country === 'AR') return 'Argentina';
@@ -141,7 +141,6 @@ export class Country implements PipeTransform {
     if (country === 'LI') return 'Lithuania';
     if (country === 'LT') return 'Latvia';
     if (country === 'LU') return 'Luxembourg';
-
     if (country === 'MG') return 'Madagascar';
     if (country === 'MW') return 'Malavi';
     if (country === 'MY') return 'Malaysia';
@@ -249,7 +248,6 @@ export class Country implements PipeTransform {
     if (country === 'AX') return 'Åland Islands';
     if (country === 'PF') return 'French Polynesia';
     if (country === 'TD') return 'Chad';
-    if (country === 'CK') return 'Cook Islands';
 
     return country;
   }

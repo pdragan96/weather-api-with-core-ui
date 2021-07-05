@@ -13,17 +13,14 @@ import { delay } from 'rxjs/operators';
 })
 export class CitiesDataComponent implements OnInit, OnDestroy {
   cities: ICity[] = [];
-  postedCity: any;
   private sub: Subscription;
   onCityQuery: (name: string) => Observable<ICity[]>
   clickedCity: boolean[] = [];
-  @ViewChild('newCityForm') newCityForm: NgForm;
   @ViewChild('cityForm') cityForm: NgForm;
   cityData = null;
-  field = 'latitude';
+  field = 'name';
   text = 'Save in database';
   cityName: string;
-  emptyField = true;
 
 
 
@@ -36,13 +33,9 @@ export class CitiesDataComponent implements OnInit, OnDestroy {
 
     this.onCityQuery = (name: string) => {
       this.cityName = name;
-      this.cityData = this.citiesService.sendNameToServer(name).pipe(delay(50));
+      this.cityData = this.citiesService.getCityByName(name).pipe(delay(50));
       return this.cityData;
     };
-  }
-
-  public get city() {
-    return this.cityData;
   }
 
   showCityDetails(city: ICity) {
@@ -62,7 +55,6 @@ export class CitiesDataComponent implements OnInit, OnDestroy {
     else {
       return false;
     }
-
   }
 
   onSave() {
