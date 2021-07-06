@@ -11,7 +11,7 @@ export interface IFactories {
   role: RoleFactory;
   user: UserFactory;
   token: TokenFactory;
-  weather: WeatherFactory
+  weather: WeatherFactory;
 }
 
 export class FactoryBuilder {

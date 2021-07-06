@@ -26,6 +26,6 @@ export class RoutesModule extends RoutingModule {
     this.server.app.use(`${ this.baseUrl }/users`, this.userRouter.build());
     this.server.app.use(`${ this.baseUrl }/weather`, this.weatherRouter.build());
     this.server.app.use(`${ this.baseUrl }/city`, this.cityRouter.build());
-    this.server.app.use(`${ this.baseUrl }/city/name`, this.cityRouter.build());
+   // this.server.app.use(`${ this.baseUrl }/city/name`, this.cityRouter.build());
   }
 }

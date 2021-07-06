@@ -13,9 +13,14 @@ import { EmaticCoreUIModule } from './ematic-core-ui/ematic-core-ui.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
-  declarations: [AppComponent, CitiesDataComponent, CityTemperature, Country, Timezone],
+  declarations: [
+    AppComponent,
+    CitiesDataComponent,
+    CityTemperature,
+    Country,
+    Timezone
+  ],
   imports: [
-
     BrowserModule,
     AppRoutingModule,
     FormsModule,

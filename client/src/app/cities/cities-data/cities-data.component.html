@@ -41,6 +41,6 @@
     </es-lookup>
   </es-form-field>
 
-  <es-button [text]="text" (clicked)="onSave()" [disabled]="!checkInput()">
+  <es-button [text]="text" (clicked)="onSave()" [disabled]="!isSaveDisabled()">
   </es-button>
 </form>

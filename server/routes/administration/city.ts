@@ -12,7 +12,7 @@ export class CityRouter extends Router {
     super(server);
   }
   initRoutes() {
-    this.router.route('/name/:id').get(this.postName.bind(this));
+    this.router.route('/:id').get(this.postName.bind(this));
   }
 
   async postName(request: IRequest, response: IResponse, next: NextFunction) {
