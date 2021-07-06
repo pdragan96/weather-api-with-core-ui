@@ -3,7 +3,6 @@ import { Router } from '../../core/express/router';
 import { IRequest } from '../../core/models/express/request';
 import { IResponse } from '../../core/models/express/response';
 import { Server } from '../../core/server';
-import { Weather } from '../../core/weather';
 import { WeatherRepository } from '../../repositories/weather';
 
 export class WeatherRouter extends Router {
@@ -30,10 +29,8 @@ export class WeatherRouter extends Router {
   async create(request: IRequest, response: IResponse, next: NextFunction) {
     try {
       const wr = new WeatherRepository(this.server);
-      const weather = new Weather(this.server);
-      // const cityData = await weather.cityWeatherByCityId(request.body.cityId);
-      const cityData = await weather.cityWeatherByCityName(request.body);
 
+      const cityData = request.body;
       await wr.create(data => {
         data.coord = cityData.coord;
         data.cityId = cityData.id;

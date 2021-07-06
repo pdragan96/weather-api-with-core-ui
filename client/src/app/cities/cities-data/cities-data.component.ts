@@ -14,6 +14,7 @@ import { delay } from 'rxjs/operators';
 export class CitiesDataComponent implements OnInit, OnDestroy {
   cities: ICity[] = [];
   private sub: Subscription;
+  private subPost: Subscription;
   onCityQuery: (name: string) => Observable<ICity[]>
   clickedCity: boolean[] = [];
   @ViewChild('cityForm') cityForm: NgForm;
@@ -46,7 +47,7 @@ export class CitiesDataComponent implements OnInit, OnDestroy {
     })
   }
 
-  checkInput() {
+  isSaveDisabled() {
     if (this.cityData) { // ako je null javlja gresku pri pozivu propertija name
       if (this.cityData.name) {
         return true;
@@ -57,13 +58,21 @@ export class CitiesDataComponent implements OnInit, OnDestroy {
     }
   }
 
+  // onSave() {
+  //   this.subPost = this.citiesService.postCity(this.cityName).subscribe((resData) => {
+  //     this.cities.push(this.cityData);
+  //   });
+  // }
+
   onSave() {
-    this.citiesService.postCity(this.cityName);
-    this.cities.push(this.cityData);
+    this.subPost = this.citiesService.postCity(this.cityData).subscribe((resData) => {
+      this.cities.push(this.cityData);
+    });
   }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+    this.subPost.unsubscribe();
   }
 }
 
